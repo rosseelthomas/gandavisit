@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="GandaVisit.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GandaVisit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Pivot Title="GandaVisit" Margin="-10,0,10,0">
+            <PivotItem x:Name="Menu" Header="Menu">
+                <Grid>
+                    <TextBlock x:Name="TxtMyVisits" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="My Visits" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="32" Width="202" FontSize="24"/>
+                    <TextBlock x:Name="TxtSearch" HorizontalAlignment="Left" Margin="10,47,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="32" Width="202" FontSize="24"/>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="My visits">
+                <Grid/>
+            </PivotItem>
+            <PivotItem Header="Search">
+                <Grid/>
+            </PivotItem>
+
+        </Pivot>
+
+    </Grid>
+</Page>
+
