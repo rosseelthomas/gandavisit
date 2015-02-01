@@ -44,5 +44,27 @@ namespace GandaVisit
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> items = new List<string>();
+            items.Add("Belfort");
+            items.Add("Glazen Straatje");
+            lbResults.ItemsSource = items;
+            
+        }
+
+        private void GoVisits(object sender, TappedRoutedEventArgs e)
+        {
+            pivotMain.SelectedIndex = 1;
+        }
+
+        private void GO_Search(object sender, TappedRoutedEventArgs e)
+        {
+            pivotMain.SelectedIndex = 2;
+            
+        }
+
+       
     }
 }

@@ -30,3 +30,35 @@ c:\users\ugent\documents\visual studio 2013\Projects\GandaVisit\GandaVisit\obj\D
 c:\users\ugent\documents\visual studio 2013\Projects\GandaVisit\GandaVisit\obj\Debug\qualifiers.txt.intermediate
 c:\users\ugent\documents\visual studio 2013\Projects\GandaVisit\GandaVisit\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 c:\users\ugent\documents\visual studio 2013\Projects\GandaVisit\GandaVisit\obj\Debug\ProjectArchitectures.txt
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\App.xbf
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\MainPage.xbf
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\GandaVisit.xr.xml
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\GandaVisit.exe
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\GandaVisit.pdb
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\resources.pri
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\AppxManifest.xml
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\GandaVisit.build.appxrecipe
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\App.g.i.cs
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\App.g.cs
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\MainPage.g.i.cs
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\MainPage.g.cs
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\XamlTypeInfo.g.cs
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\App.xaml
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\App.xbf
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\XamlSaveStateFile.xml
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\MainPage.xaml
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\MainPage.xbf
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\GandaVisit.exe
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\GandaVisit.pdb
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\priconfig.xml
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\priconfig.xml.intermediate
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\layout.resfiles
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\layout.resfiles.intermediate
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\resources.resfiles
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\resources.resfiles.intermediate
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\pri.resfiles
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\pri.resfiles.intermediate
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\qualifiers.txt
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\qualifiers.txt.intermediate
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\ProjectArchitectures.txt
