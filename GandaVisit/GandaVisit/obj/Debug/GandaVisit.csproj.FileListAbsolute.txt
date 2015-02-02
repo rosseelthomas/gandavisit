@@ -62,3 +62,8 @@ C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\qualifier
 C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\qualifiers.txt.intermediate
 C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\ProjectArchitectures.txt
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\Detail.xbf
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\Detail.g.i.cs
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\Detail.g.cs
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\Detail.xaml
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\Detail.xbf

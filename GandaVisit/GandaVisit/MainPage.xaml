@@ -27,7 +27,7 @@
 
                     </Grid>
                     <Grid Height="468">
-                        <ListBox x:Name="lbResults" Margin="0,0,0,-12" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36"/>
+                        <ListBox x:Name="lbResults" Margin="0,0,0,-12" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36" SelectionChanged="Go_Detail"/>
                     </Grid>
 
                 </StackPanel>

@@ -65,6 +65,12 @@ namespace GandaVisit
             
         }
 
+        private void Go_Detail(object sender, SelectionChangedEventArgs e)
+        {
+            Frame.Navigate(typeof(Detail));
+        
+        }
+
        
     }
 }

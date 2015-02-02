@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="GandaVisit.Detail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GandaVisit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Pivot x:Name="DetailsPivot" Title="Pivot">
+            <PivotItem Header="Menu">
+                <Grid>
+                    <Image x:Name="ImgDetail" HorizontalAlignment="Left" Height="317" Margin="10,10,0,0" VerticalAlignment="Top" Width="342" Source="Assets/Logo.png" Stretch="Fill"/>
+                    <Button x:Name="BtnAddVisit" Content="Visit" HorizontalAlignment="Left" Height="55" Margin="68,363,0,0" VerticalAlignment="Top" Width="207"/>
+                    <Button x:Name="BtnRoute" Content="Route" HorizontalAlignment="Left" Height="55" Margin="68,422,0,0" VerticalAlignment="Top" Width="207"/>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Description">
+                <ScrollViewer VerticalContentAlignment="Top" HorizontalContentAlignment="Left">
+                    <TextBlock x:Name="TxtDiscription" Margin="0" TextWrapping="Wrap" Text="TextBlock" FontSize="24" IsTextSelectionEnabled="True" IsHitTestVisible="False" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                </ScrollViewer>
+
+            </PivotItem>
+            <PivotItem Header="Contact">
+                <ScrollViewer VerticalContentAlignment="Top" HorizontalContentAlignment="Left">
+                    <TextBlock x:Name="TxtContact" Margin="0" TextWrapping="Wrap" Text="TextBlock" FontSize="24" IsTextSelectionEnabled="True" IsHitTestVisible="False" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                </ScrollViewer>
+
+            </PivotItem>
+
+        </Pivot>
+
+    </Grid>
+</Page>

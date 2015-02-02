@@ -46,6 +46,9 @@
     <AppxPackagedFile Include="C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\Detail.xbf">
+      <PackagePath>Detail.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
