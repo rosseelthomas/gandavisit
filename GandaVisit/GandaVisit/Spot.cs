@@ -11,9 +11,12 @@ namespace GandaVisit
         private string naam;
         private string imgLink;
         private string description;
-        private string contact;
+        private ContactInfo contact;
 
-
+        public Spot()
+        {
+            contact = new ContactInfo();
+        }
         public string Naam
         {
             get
@@ -50,7 +53,7 @@ namespace GandaVisit
             }
         }
 
-        public string Contact
+        public ContactInfo Contact
         {
             get
             {

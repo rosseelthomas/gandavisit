@@ -31,17 +31,17 @@
       <RootMethod Name="SetVerticalScrollBarVisibility" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
-      <RootProperty Name="Margin" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Text" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="IsTextSelectionEnabled" />
-      <RootProperty Name="IsHitTestVisible" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="IsTextSelectionEnabled" />
+      <RootProperty Name="IsHitTestVisible" />
+      <RootProperty Name="RenderTransformOrigin" />
       <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">

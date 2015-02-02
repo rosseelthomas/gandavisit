@@ -11,6 +11,7 @@ namespace GandaVisit
         string Naam { get; set; }
         string ImgLink { get; set; }
         string Description { get; set; }
-        string Contact { get; set; }
+        ContactInfo Contact { get; set; }
+        
     }
 }

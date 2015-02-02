@@ -85,6 +85,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ContactInfo.cs" />
     <Compile Include="Detail.xaml.cs">
       <DependentUpon>Detail.xaml</DependentUpon>
     </Compile>
