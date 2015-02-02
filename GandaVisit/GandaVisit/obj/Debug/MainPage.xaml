@@ -12,12 +12,14 @@
         <Pivot x:Name="pivotMain" Title="GandaVisit" Margin="-10,0,10,0">
             <PivotItem x:Name="Menu" Header="Menu">
                 <Grid>
-                    <TextBlock x:ConnectionId='3' x:Name="TxtMyVisits" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="My Visits" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="49" Width="342" FontSize="36"                  />
-                    <TextBlock x:ConnectionId='4' x:Name="TxtSearch" HorizontalAlignment="Left" Margin="10,64,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="47" Width="342" FontSize="36"                   />
+                    <TextBlock x:ConnectionId='4' x:Name="TxtMyVisits" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="My Visits" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="49" Width="342" FontSize="36"                  />
+                    <TextBlock x:ConnectionId='5' x:Name="TxtSearch" HorizontalAlignment="Left" Margin="10,64,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="47" Width="342" FontSize="36"                   />
                 </Grid>
             </PivotItem>
             <PivotItem Header="My visits">
-                <Grid/>
+                <Grid>
+                    <ListBox x:ConnectionId='3' x:Name="lblVisits" Margin="0,0,0,-12" BorderBrush="{x:Null}" FontSize="36"                              DisplayMemberPath="Naam" Background="{x:Null}" Foreground="{ThemeResource ButtonForegroundThemeBrush}"/>
+                </Grid>
             </PivotItem>
             <PivotItem Header="Search" Margin="10,0,0,-0.5">
                 <StackPanel Margin="10,0,0,0">
@@ -27,11 +29,9 @@
 
                     </Grid>
                     <Grid Height="468">
-                        <ListBox x:ConnectionId='1' x:Name="lbResults" Margin="0,0,0,-12" BorderBrush="{x:Null}" FontSize="36"                              DisplayMemberPath="Naam" Background="{x:Null}" Foreground="{ThemeResource ButtonForegroundThemeBrush}">
-                            <ListBoxItem>
-                                <x:String>LOL</x:String>
-                            </ListBoxItem>
-                        </ListBox>
+                        <ListBox x:ConnectionId='1' x:Name="lbResults" Margin="0,0,0,-12" BorderBrush="{x:Null}" FontSize="36"                              DisplayMemberPath="Naam" Background="{x:Null}" Foreground="{ThemeResource ButtonForegroundThemeBrush}"/>
+
+
                     </Grid>
 
                 </StackPanel>

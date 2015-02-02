@@ -47,6 +47,8 @@ namespace GandaVisit
 
             spots.Add(belfort);
             spots.Add(glazenStraatje);
+
+            lblVisits.ItemsSource = spots;
         }
 
         /// <summary>
@@ -84,7 +86,8 @@ namespace GandaVisit
 
         private void Go_Detail(object sender, SelectionChangedEventArgs e)
         {
-            ISpot geselecteerd = (ISpot)lbResults.SelectedItem;
+            ListBox box = (ListBox)sender;
+            ISpot geselecteerd = (ISpot)box.SelectedItem;
             Frame.Navigate(typeof(Detail),geselecteerd);
         
         }
