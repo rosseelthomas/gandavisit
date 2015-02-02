@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Windows.Phone.UI.Input;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -26,7 +27,14 @@ namespace GandaVisit
         public Detail()
         {
             this.InitializeComponent();
+            HardwareButtons.BackPressed += OnBackPressed;
             
+        }
+
+        private void OnBackPressed(object sender, BackPressedEventArgs e)
+        {
+            e.Handled = true;
+            Frame.Navigate(typeof(MainPage));
         }
 
         /// <summary>
@@ -43,5 +51,7 @@ namespace GandaVisit
             ImgDetail.Source = new BitmapImage(new Uri(s.ImgLink));
             TxtContact.Text = s.Contact;
         }
+
+       
     }
 }
