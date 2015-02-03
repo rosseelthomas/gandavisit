@@ -24,24 +24,36 @@
 
             </PivotItem>
             <PivotItem Header="Contact">
-                <ScrollViewer VerticalContentAlignment="Top" HorizontalContentAlignment="Left">
-                    <Grid ScrollViewer.HorizontalScrollBarVisibility="Visible">
-                        <TextBlock x:Name="txtAdress" TextWrapping="Wrap" Text="Adress" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30"/>
+                <ScrollViewer VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Margin="0">
+                    <StackPanel ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                        <Grid x:Name="gAdres">
+                            <TextBlock x:Name="txtAdress" TextWrapping="Wrap" Text="Adress" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30"/>
                         <TextBlock x:Name="txtStreet" TextWrapping="Wrap" Text="Street" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,47,0,0"/>
                         <TextBlock x:Name="txtCity" TextWrapping="Wrap" Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,77,0,0"/>
 
-                        <TextBlock x:Name="txtContactPhone" TextWrapping="Wrap" Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30" Margin="0,133,0,0"/>
-                        <TextBlock x:Name="txtPhone" TextWrapping="Wrap" Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,180,0,0" Tapped="Phone_Pressed"/>
+                        </Grid>
+                        <Grid x:Name="gPhone" Height="100">
+                            <TextBlock x:Name="txtContactPhone" TextWrapping="Wrap" Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30" Margin="0,10,0,0"/>
+                            <TextBlock x:Name="txtPhone" TextWrapping="Wrap" Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,57,0,0" Tapped="Phone_Pressed"/>
 
-                        <TextBlock x:Name="txtContactFax" TextWrapping="Wrap" Text="Fax" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30" Margin="0,215,0,0"/>
-                        <TextBlock x:Name="txtFax" TextWrapping="Wrap" Text="Fax" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,262,0,0"/>
+                        </Grid>
+                        <Grid x:Name="gFax" Height="100">
+                             <TextBlock x:Name="txtContactFax" TextWrapping="Wrap" Text="Fax" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30"/>
+                        <TextBlock x:Name="txtFax" TextWrapping="Wrap" Text="Fax" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,47,0,0"/>
+                        </Grid>
+                       
+                        <Grid x:Name="gWebsite" Height="100">
+                            <TextBlock x:Name="txtContactWebsite" TextWrapping="Wrap" Text="Website" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="116" FontSize="30"/>
+                            <TextBlock x:Name="txtWebsite" TextWrapping="Wrap" Text="Website" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,47,0,-30" Tapped="Website_pressed"/>
 
-                        <TextBlock x:Name="txtContactWebsite" TextWrapping="Wrap" Text="Website" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="116" FontSize="30" Margin="0,297,0,0"/>
-                        <TextBlock x:Name="txtWebsite" TextWrapping="Wrap" Text="Website" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,344,0,0" Tapped="Website_pressed"/>
+                        </Grid>
+                 
+                        <Grid x:Name="gEmail" Height="100">
+                            <TextBlock x:Name="txtContactEmail" TextWrapping="Wrap" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30" Margin="0,0,0,0"/>
+                            <TextBlock x:Name="txtEmail" TextWrapping="Wrap" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,47,0,0" Tapped="Email_Pressed"/>
 
-                        <TextBlock x:Name="txtContactEmail" TextWrapping="Wrap" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30" Margin="0,374,0,0"/>
-                        <TextBlock x:Name="txtEmail" TextWrapping="Wrap" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,421,0,0" Tapped="Email_Pressed"/>
-                    </Grid>
+                        </Grid>
+                        </StackPanel>
                 </ScrollViewer>
 
             </PivotItem>

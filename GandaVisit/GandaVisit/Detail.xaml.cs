@@ -54,17 +54,23 @@ namespace GandaVisit
             TxtDiscription.Text=s.Description;
             DetailsPivot.Title =s.Naam;
             ImgDetail.Source = new BitmapImage(new Uri(s.ImgLink));
+            
+            //instellen Contact
+            Set_Contact(s);
+           
 
+        }
+
+        private void Set_Contact(ISpot s)
+        {
             //address
             if (s.Contact.City == null && s.Contact.AdressNumber == 0 && s.Contact.Street == null)
             {
-                txtAdress.Visibility = Visibility.Collapsed;
-                txtCity.Visibility = Visibility.Collapsed;
-                txtStreet.Visibility = Visibility.Collapsed;
+                gAdres.Visibility = Visibility.Collapsed;
             }
             else
-            {              
-                txtAdress.Visibility = Visibility.Visible;
+            {
+                gAdres.Visibility = Visibility.Visible;
                 if (s.Contact.City != null)
                 {
                     txtCity.Visibility = Visibility.Visible;
@@ -87,63 +93,54 @@ namespace GandaVisit
                     {
                         txtStreet.Text = s.Contact.Street;
                     }
-                    
+
                 }
                 else
                 {
                     txtStreet.Visibility = Visibility.Collapsed;
-                }               
-                
+                }
+
             }
 
             if (s.Contact.Fax != 0)
             {
-                txtContactFax.Visibility = Visibility.Visible;
-                txtFax.Visibility = Visibility.Visible;
+                gFax.Visibility = Visibility.Visible;
                 txtFax.Text = s.Contact.Fax.ToString();
             }
             else
             {
-                txtFax.Visibility = Visibility.Collapsed;
-                txtContactFax.Visibility = Visibility.Collapsed;
+                gFax.Visibility = Visibility.Collapsed;
             }
 
             if (s.Contact.PhoneNumber != 0)
             {
-                txtContactPhone.Visibility = Visibility.Visible;
-                txtPhone.Visibility = Visibility.Visible;
+                gPhone.Visibility = Visibility.Visible;
                 txtPhone.Text = s.Contact.PhoneNumber.ToString();
             }
             else
             {
-                txtContactPhone.Visibility = Visibility.Collapsed;
-                txtPhone.Visibility = Visibility.Collapsed;
+                gPhone.Visibility = Visibility.Collapsed;
             }
 
             if (s.Contact.Website != null)
             {
-                txtContactWebsite.Visibility = Visibility.Visible;
-                txtWebsite.Visibility = Visibility.Visible;
+                gWebsite.Visibility = Visibility.Visible;
                 txtWebsite.Text = s.Contact.Website;
             }
             else
             {
-                txtContactWebsite.Visibility = Visibility.Collapsed;
-                txtWebsite.Visibility = Visibility.Collapsed;
+                gWebsite.Visibility = Visibility.Collapsed;
             }
 
             if (s.Contact.Email != null)
             {
-                txtContactEmail.Visibility = Visibility.Visible;
-                txtEmail.Visibility = Visibility.Visible;
+                gEmail.Visibility = Visibility.Visible;
                 txtEmail.Text = s.Contact.Email;
             }
             else
             {
-                txtContactWebsite.Visibility = Visibility.Collapsed;
-                txtWebsite.Visibility = Visibility.Collapsed;
+                gEmail.Visibility = Visibility.Collapsed;
             }
-
         }
 
         private void Phone_Pressed(object sender, TappedRoutedEventArgs e)
