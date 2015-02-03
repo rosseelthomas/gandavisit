@@ -26,11 +26,13 @@ namespace GandaVisit
     public sealed partial class Detail : Page
     {
         ISpot current_spot;
+        ISpotDAO dao;
         public Detail()
         {
             this.InitializeComponent();
             HardwareButtons.BackPressed += OnBackPressed;
-            
+
+            dao = (ISpotDAO)App.Current.Resources["dao"];
         }
 
         private void OnBackPressed(object sender, BackPressedEventArgs e)
@@ -46,28 +48,21 @@ namespace GandaVisit
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+
             ISpot s = (ISpot)e.Parameter;
 
             current_spot = s;
             //instellen van de juiste gegevens
-            TxtDiscription.Text=s.Description;
-            DetailsPivot.Title =s.Naam;
+            TxtDiscription.Text = s.Description;
+            DetailsPivot.Title = s.Naam;
             ImgDetail.Source = new BitmapImage(new Uri(s.ImgLink));
-            
+
             //instellen Contact
             Set_Contact(s);
 
-            //instellen van de AddVisistsButton
-            if (s.IsVisists)
-            {
-                BtnAddVisit.Content = "Remove from visits";
-            }
-            else
-            {
-                BtnAddVisit.Content = "Add to visists";
-            }
-           
+            Set_AddVisits();
+
+
 
         }
 
@@ -167,7 +162,6 @@ namespace GandaVisit
         }
 
         private async void Website_pressed(object sender, TappedRoutedEventArgs e)
-
         {
             string uriToLaunch = @current_spot.Contact.Website;
             var uri = new Uri(uriToLaunch);
@@ -181,9 +175,31 @@ namespace GandaVisit
 
         private void BtnAddVisit_Click(object sender, RoutedEventArgs e)
         {
+            if (current_spot.IsVisists)
+            {
+                dao.RemoveVisits(current_spot);
+            }
+            else
+            {
+                dao.AddVisits(current_spot);
+            }
 
+            Set_AddVisits();
         }
 
-       
+        private void Set_AddVisits()
+        {
+            //instellen van de AddVisistsButton
+            if (current_spot.IsVisists)
+            {
+                BtnAddVisit.Content = "Remove from visits";
+            }
+            else
+            {
+                BtnAddVisit.Content = "Add to visists";
+            }
+        }
+
+
     }
 }

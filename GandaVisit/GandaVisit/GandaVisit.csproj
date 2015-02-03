@@ -89,6 +89,7 @@
     <Compile Include="Detail.xaml.cs">
       <DependentUpon>Detail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DummySpotDAO.cs" />
     <Compile Include="ISpot.cs" />
     <Compile Include="ISpotDAO.cs" />
     <Compile Include="MainPage.xaml.cs">
