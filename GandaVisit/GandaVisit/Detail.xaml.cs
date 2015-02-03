@@ -57,6 +57,16 @@ namespace GandaVisit
             
             //instellen Contact
             Set_Contact(s);
+
+            //instellen van de AddVisistsButton
+            if (s.IsVisists)
+            {
+                BtnAddVisit.Content = "Remove from visits";
+            }
+            else
+            {
+                BtnAddVisit.Content = "Add to visists";
+            }
            
 
         }
@@ -167,6 +177,11 @@ namespace GandaVisit
 
             // Launch the URI with a warning prompt
             var success = await Windows.System.Launcher.LaunchUriAsync(uri, options);
+        }
+
+        private void BtnAddVisit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
        

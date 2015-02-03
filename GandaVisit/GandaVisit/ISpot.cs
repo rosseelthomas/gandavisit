@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GandaVisit
 {
-    interface ISpot
+    public interface ISpot
     {
         string Naam { get; set; }
         string ImgLink { get; set; }

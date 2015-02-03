@@ -44,7 +44,7 @@ namespace GandaVisit
             belfort.Contact.Website = "http://www.bing.com";
             belfort.Contact.Fax = 9744;
             belfort.Contact.Email = "azofaf^n";
-          
+            belfort.IsVisists = true;
 
             ISpot glazenStraatje = new Spot();
             glazenStraatje.Naam = "Glazen straatje";
@@ -52,6 +52,7 @@ namespace GandaVisit
             glazenStraatje.Description = "In 1830 waren er verspreid over Gent dertien geautoriseerde rendez-vous-huizen (bordelen). Hier werden de kamers per dag of per uur verhuurd. Een groot deel van de prostituees verkoos om in een stad te werken waarvan ze niet afkomstig waren. Velen kwamen van het platteland en kozen Gent als nieuwe woonplaats.";
 
             glazenStraatje.Contact.Website = "http://www.bing.com";
+            glazenStraatje.IsVisists = false;
             spots.Add(belfort);
             spots.Add(glazenStraatje);
 

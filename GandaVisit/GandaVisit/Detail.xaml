@@ -13,7 +13,7 @@
             <PivotItem Header="Menu">
                 <Grid>
                     <Image x:Name="ImgDetail" HorizontalAlignment="Left" Height="317" Margin="10,10,0,0" VerticalAlignment="Top" Width="342" Source="Assets/Logo.png" Stretch="Fill"/>
-                    <Button x:Name="BtnAddVisit" Content="Visit" HorizontalAlignment="Left" Height="55" Margin="68,363,0,0" VerticalAlignment="Top" Width="207"/>
+                    <Button x:Name="BtnAddVisit" Content="Add to visits" HorizontalAlignment="Left" Height="55" Margin="68,363,0,0" VerticalAlignment="Top" Width="207" Click="BtnAddVisit_Click"/>
                     <Button x:Name="BtnRoute" Content="Route" HorizontalAlignment="Left" Height="55" Margin="68,422,0,0" VerticalAlignment="Top" Width="207"/>
                 </Grid>
             </PivotItem>
