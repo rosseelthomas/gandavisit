@@ -18,8 +18,8 @@
                 </Grid>
             </PivotItem>
             <PivotItem Header="Description">
-                <ScrollViewer VerticalContentAlignment="Top" HorizontalContentAlignment="Left">
-                    <TextBlock x:Name="TxtDiscription" Margin="0" TextWrapping="Wrap" Text="TextBlock" FontSize="24" IsTextSelectionEnabled="True" IsHitTestVisible="False" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                <ScrollViewer VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Margin="0,0,0,10">
+                    <TextBlock x:Name="TxtDiscription" Margin="0" TextWrapping="Wrap" Text="TextBlock" FontSize="24" IsTextSelectionEnabled="True" IsHitTestVisible="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
                 </ScrollViewer>
 
             </PivotItem>
