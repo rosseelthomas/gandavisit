@@ -90,6 +90,7 @@
       <DependentUpon>Detail.xaml</DependentUpon>
     </Compile>
     <Compile Include="ISpot.cs" />
+    <Compile Include="ISpotDAO.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

@@ -12,6 +12,7 @@ namespace GandaVisit
         private string imgLink;
         private string description;
         private ContactInfo contact;
+        private bool isVisits;
 
         public Spot()
         {
@@ -62,6 +63,19 @@ namespace GandaVisit
             set
             {
                 contact = value;
+            }
+        }
+
+
+        public bool IsVisists
+        {
+            get
+            {
+                return isVisits;
+            }
+            set
+            {
+                isVisits = value;
             }
         }
     }
