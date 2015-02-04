@@ -50,7 +50,7 @@
                  
                         <Grid x:Name="gEmail" Height="100">
                             <TextBlock x:Name="txtContactEmail" TextWrapping="Wrap" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30" Margin="0,0,0,0"/>
-                            <TextBlock x:ConnectionId='1' x:Name="txtEmail" TextWrapping="Wrap" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,47,0,0"                       />
+                            <TextBlock x:ConnectionId='1' x:Name="txtEmail" TextWrapping="WrapWholeWords" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Width="324" FontSize="24" Margin="10,47,0,0"                       />
 
                         </Grid>
                         </StackPanel>
