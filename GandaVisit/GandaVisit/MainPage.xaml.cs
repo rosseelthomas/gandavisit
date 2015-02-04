@@ -87,6 +87,11 @@ namespace GandaVisit
         
         }
 
+        private void GO_About(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(About));
+        }
+
        
     }
 }

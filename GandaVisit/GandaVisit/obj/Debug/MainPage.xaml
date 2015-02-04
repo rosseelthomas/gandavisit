@@ -14,6 +14,7 @@
                 <Grid>
                     <TextBlock x:ConnectionId='4' x:Name="TxtMyVisits" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="My Visits" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="49" Width="342" FontSize="36"                  />
                     <TextBlock x:ConnectionId='5' x:Name="TxtSearch" HorizontalAlignment="Left" Margin="10,64,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="47" Width="342" FontSize="36"                   />
+                    <TextBlock x:ConnectionId='6' x:Name="TxtAbout" HorizontalAlignment="Left" Margin="10,111,0,0" TextWrapping="Wrap" Text="About" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="47" Width="342" FontSize="36"                  />
                 </Grid>
             </PivotItem>
             <PivotItem Header="My visits">

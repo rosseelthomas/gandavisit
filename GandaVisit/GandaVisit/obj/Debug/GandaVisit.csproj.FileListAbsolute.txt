@@ -67,3 +67,8 @@ C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\Detail.g.
 C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\Detail.g.cs
 C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\Detail.xaml
 C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\Detail.xbf
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\About.g.i.cs
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\About.g.cs
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\About.xaml
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\About.xbf
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\About.xbf
