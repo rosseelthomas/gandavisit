@@ -8,6 +8,20 @@
     x:Class="GandaVisit.Detail"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.BottomAppBar>
+        <CommandBar ClosedDisplayMode="Minimal">
+            <AppBarButton x:Name="btnRoute" Label="Route" Click="btnRoute_Click">
+                <AppBarButton.Icon>
+                    <SymbolIcon Symbol="Map"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:Name="BtnClear" Label="Clear" Click="BtnClear_Click">
+                <AppBarButton.Icon>
+                    <SymbolIcon Symbol="Clear"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
 
     <Grid>
         <Pivot x:Name="DetailsPivot" Title="Pivot">
@@ -63,7 +77,7 @@
             </PivotItem>
 
         </Pivot>
-      
+
 
     </Grid>
 </Page>

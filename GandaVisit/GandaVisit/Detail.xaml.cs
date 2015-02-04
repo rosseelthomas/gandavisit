@@ -20,6 +20,8 @@ using Windows.UI.Xaml.Shapes;
 using Windows.UI;
 using Windows.UI.Xaml.Controls.Maps;
 using Windows.Storage.Streams;
+using Windows.UI.Popups;
+using Windows.Services.Maps;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -68,7 +70,13 @@ namespace GandaVisit
 
             Set_AddVisits();
 
-            Set_Map();
+            Geopoint p = new Geopoint(new BasicGeoposition()
+            {
+                Latitude = current_spot.Latitude,
+                Longitude = current_spot.Longitude
+            });
+
+            Set_Map(p, current_spot.Naam);
         }
 
         private void Set_Contact()
@@ -210,31 +218,100 @@ namespace GandaVisit
             DetailsPivot.SelectedIndex = 3;
         }
 
-        private void Set_Map()
+        private void Set_Map(Geopoint p, string text)
         {
-            MapControlLocation.Center = new Geopoint(new BasicGeoposition()
-                           {
-                               Latitude = current_spot.Latitude,
-                               Longitude = current_spot.Longitude
-                           });
+            try
+            {
+                MapControlLocation.Center = p;
                 MapControlLocation.ZoomLevel = 17;
                 MapControlLocation.LandmarksVisible = true;
 
                 //tonen van icoon
                 MapIcon mapIcon = new MapIcon();
                 mapIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/MapPijl.png"));
-                mapIcon.NormalizedAnchorPoint = new Point(0.5,1);
-                mapIcon.Title = current_spot.Naam;
-                mapIcon.Location = new Geopoint(new BasicGeoposition()
+                mapIcon.NormalizedAnchorPoint = new Point(0.5, 1);
+                mapIcon.Title = text;
+                mapIcon.Location = p;
+
+                MapControlLocation.MapElements.Add(mapIcon);
+            }
+            catch (Exception ex)
+            {
+                ErrorMap();
+            }
+
+
+
+        }
+
+        private async void CalculateRoute()
+        {
+
+            Geolocator locator = new Geolocator();
+            Geoposition geopos = null;
+
+
+
+            try
+            {
+                geopos = await locator.GetGeopositionAsync();
+                Set_Map(geopos.Coordinate.Point, "Start");
+                Geopoint eind = new Geopoint(new BasicGeoposition()
                 {
                     Latitude = current_spot.Latitude,
                     Longitude = current_spot.Longitude
                 });
-
-                MapControlLocation.MapElements.Add(mapIcon);
-           
+                MapRouteFinderResult result = await MapRouteFinder.GetWalkingRouteAsync(geopos.Coordinate.Point, eind);
+                if (result.Status == MapRouteFinderStatus.Success)
+                {
+                    MapRouteView view = new MapRouteView(result.Route);
+                    view.RouteColor = Colors.Blue;
+                    view.OutlineColor = Colors.Red;
+                    MapControlLocation.Routes.Add(view);
+                    await MapControlLocation.TrySetViewBoundsAsync(result.Route.BoundingBox, null, Windows.UI.Xaml.Controls.Maps.MapAnimationKind.Bow);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorMap();
+            }
 
         }
+
+        private async void ErrorMap()
+        {
+            //message tonen
+            MessageDialog d = new MessageDialog("An error occured: Is location/internet on?");
+            d.Commands.Add(new UICommand("Try again", new UICommandInvokedHandler(this.MessageTryAgain)));
+            d.Commands.Add(new UICommand("Cancel", new UICommandInvokedHandler(this.MessageCancel)));
+            await d.ShowAsync();
+        }
+
+        private void MessageTryAgain(IUICommand command)
+        {
+            CalculateRoute();
+        }
+
+        private void MessageCancel(IUICommand command)
+        {
+            //do nothing
+        }
+
+        private void BtnClear_Click(object sender, RoutedEventArgs e)
+        {
+            DetailsPivot.SelectedIndex = 3;
+            MapControlLocation.MapElements.Clear();
+            MapControlLocation.Routes.Clear();
+        }
+
+        private void btnRoute_Click(object sender, RoutedEventArgs e)
+        {
+            DetailsPivot.SelectedIndex = 3;
+            CalculateRoute();
+        }
+
+
+
 
     }
 }
