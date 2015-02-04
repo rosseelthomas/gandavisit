@@ -38,7 +38,7 @@ namespace GandaVisit
             HardwareButtons.BackPressed += OnBackPressed;
 
             dao = (ISpotDAO)App.Current.Resources["dao"];
-        
+
         }
 
         private void OnBackPressed(object sender, BackPressedEventArgs e)
@@ -68,27 +68,7 @@ namespace GandaVisit
 
             Set_AddVisits();
 
-            //kaart instellen
-            MapControlLocation.Center = new Geopoint(new BasicGeoposition()
-            {
-                Latitude = 51.0543422,
-                Longitude = 3.7174243
-            });
-            MapControlLocation.ZoomLevel = 17;
-            MapControlLocation.LandmarksVisible = true;
-
-            //tonen van icoon
-            MapIcon mapIcon = new MapIcon();
-            mapIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/Square71x71Logo.scale-240.png"));
-            mapIcon.NormalizedAnchorPoint = new Point(0.5, 0.5);
-            mapIcon.Title = current_spot.Naam;
-            mapIcon.Location=new Geopoint(new BasicGeoposition()
-            {
-                Latitude = 51.0543422,
-                Longitude = 3.7174243
-            });
-
-            MapControlLocation.MapElements.Add(mapIcon);
+            Set_Map();
         }
 
         private void Set_Contact(ISpot s)
@@ -230,6 +210,31 @@ namespace GandaVisit
             DetailsPivot.SelectedIndex = 3;
         }
 
+        private void Set_Map()
+        {
+            MapControlLocation.Center = new Geopoint(new BasicGeoposition()
+                           {
+                               Latitude = current_spot.Latitude,
+                               Longitude = current_spot.Longitude
+                           });
+                MapControlLocation.ZoomLevel = 17;
+                MapControlLocation.LandmarksVisible = true;
+
+                //tonen van icoon
+                MapIcon mapIcon = new MapIcon();
+                mapIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/Square71x71Logo.scale-240.png"));
+                mapIcon.NormalizedAnchorPoint = new Point(0.5, 0.5);
+                mapIcon.Title = current_spot.Naam;
+                mapIcon.Location = new Geopoint(new BasicGeoposition()
+                {
+                    Latitude = current_spot.Latitude,
+                    Longitude = current_spot.Longitude
+                });
+
+                MapControlLocation.MapElements.Add(mapIcon);
+           
+
+        }
 
     }
 }

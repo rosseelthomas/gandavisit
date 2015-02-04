@@ -13,7 +13,8 @@ namespace GandaVisit
         private string description;
         private ContactInfo contact;
         private bool isVisits;
-
+        private double longitude;
+        private double latitude;
         public Spot()
         {
             contact = new ContactInfo();
@@ -76,6 +77,34 @@ namespace GandaVisit
             set
             {
                 isVisits = value;
+            }
+        }
+
+
+
+
+
+        public double Latitude
+        {
+            get
+            {
+               return latitude;
+            }
+            set
+            {
+                latitude=value;
+            }
+        }
+
+        public double Longitude
+        {
+            get
+            {
+                return longitude;
+            }
+            set
+            {
+                longitude = value;
             }
         }
     }

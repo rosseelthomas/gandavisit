@@ -35,7 +35,8 @@ namespace GandaVisit
             glazenStraatje.Naam = "Glazen straatje";
             glazenStraatje.ImgLink = "http://www.infotalia.com/pictures/steden/250/vanderdonckt1-2.jpg";
             glazenStraatje.Description = "In 1830 waren er verspreid over Gent dertien geautoriseerde rendez-vous-huizen (bordelen). Hier werden de kamers per dag of per uur verhuurd. Een groot deel van de prostituees verkoos om in een stad te werken waarvan ze niet afkomstig waren. Velen kwamen van het platteland en kozen Gent als nieuwe woonplaats.";
-
+            glazenStraatje.Latitude = 51.0543422;
+            glazenStraatje.Longitude = 3.7174243;
             glazenStraatje.Contact.Website = "http://www.bing.com";
             glazenStraatje.IsVisists = false;
             db.Add(belfort);
