@@ -64,44 +64,44 @@ namespace GandaVisit
             ImgDetail.Source = new BitmapImage(new Uri(s.ImgLink));
 
             //instellen Contact
-            Set_Contact(s);
+            Set_Contact();
 
             Set_AddVisits();
 
             Set_Map();
         }
 
-        private void Set_Contact(ISpot s)
+        private void Set_Contact()
         {
             //address
-            if (s.Contact.City == null && s.Contact.AdressNumber == 0 && s.Contact.Street == null)
+            if (current_spot.Contact.City == null && current_spot.Contact.AdressNumber == 0 && current_spot.Contact.Street == null)
             {
                 gAdres.Visibility = Visibility.Collapsed;
             }
             else
             {
                 gAdres.Visibility = Visibility.Visible;
-                if (s.Contact.City != null)
+                if (current_spot.Contact.City != null)
                 {
                     txtCity.Visibility = Visibility.Visible;
-                    txtCity.Text = s.Contact.City;
+                    txtCity.Text = current_spot.Contact.City;
                 }
                 else
                 {
                     txtCity.Visibility = Visibility.Collapsed;
                 }
 
-                if (s.Contact.Street != null)
+                if (current_spot.Contact.Street != null)
                 {
 
                     txtStreet.Visibility = Visibility.Visible;
-                    if (s.Contact.AdressNumber != 0)
+                    if (current_spot.Contact.AdressNumber != 0)
                     {
-                        txtStreet.Text = s.Contact.Street + " " + s.Contact.AdressNumber;
+                        txtStreet.Text = current_spot.Contact.Street + " " + current_spot.Contact.AdressNumber;
                     }
                     else
                     {
-                        txtStreet.Text = s.Contact.Street;
+                        txtStreet.Text = current_spot.Contact.Street;
                     }
 
                 }
@@ -112,40 +112,40 @@ namespace GandaVisit
 
             }
 
-            if (s.Contact.Fax != 0)
+            if (current_spot.Contact.Fax != 0)
             {
                 gFax.Visibility = Visibility.Visible;
-                txtFax.Text = s.Contact.Fax.ToString();
+                txtFax.Text = current_spot.Contact.Fax.ToString();
             }
             else
             {
                 gFax.Visibility = Visibility.Collapsed;
             }
 
-            if (s.Contact.PhoneNumber != 0)
+            if (current_spot.Contact.PhoneNumber != 0)
             {
                 gPhone.Visibility = Visibility.Visible;
-                txtPhone.Text = s.Contact.PhoneNumber.ToString();
+                txtPhone.Text = current_spot.Contact.PhoneNumber.ToString();
             }
             else
             {
                 gPhone.Visibility = Visibility.Collapsed;
             }
 
-            if (s.Contact.Website != null)
+            if (current_spot.Contact.Website != null)
             {
                 gWebsite.Visibility = Visibility.Visible;
-                txtWebsite.Text = s.Contact.Website;
+                txtWebsite.Text = current_spot.Contact.Website;
             }
             else
             {
                 gWebsite.Visibility = Visibility.Collapsed;
             }
 
-            if (s.Contact.Email != null)
+            if (current_spot.Contact.Email != null)
             {
                 gEmail.Visibility = Visibility.Visible;
-                txtEmail.Text = s.Contact.Email;
+                txtEmail.Text = current_spot.Contact.Email;
             }
             else
             {
