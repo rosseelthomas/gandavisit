@@ -222,8 +222,8 @@ namespace GandaVisit
 
                 //tonen van icoon
                 MapIcon mapIcon = new MapIcon();
-                mapIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/Square71x71Logo.scale-240.png"));
-                mapIcon.NormalizedAnchorPoint = new Point(0.5, 0.5);
+                mapIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/MapPijl.png"));
+                mapIcon.NormalizedAnchorPoint = new Point(0.5,1);
                 mapIcon.Title = current_spot.Naam;
                 mapIcon.Location = new Geopoint(new BasicGeoposition()
                 {
