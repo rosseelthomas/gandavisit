@@ -15,6 +15,11 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Windows.Phone.UI.Input;
 using Windows.System;
+using Windows.Devices.Geolocation;
+using Windows.UI.Xaml.Shapes;
+using Windows.UI;
+using Windows.UI.Xaml.Controls.Maps;
+using Windows.Storage.Streams;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -33,6 +38,7 @@ namespace GandaVisit
             HardwareButtons.BackPressed += OnBackPressed;
 
             dao = (ISpotDAO)App.Current.Resources["dao"];
+        
         }
 
         private void OnBackPressed(object sender, BackPressedEventArgs e)
@@ -62,8 +68,27 @@ namespace GandaVisit
 
             Set_AddVisits();
 
+            //kaart instellen
+            MapControlLocation.Center = new Geopoint(new BasicGeoposition()
+            {
+                Latitude = 51.0543422,
+                Longitude = 3.7174243
+            });
+            MapControlLocation.ZoomLevel = 17;
+            MapControlLocation.LandmarksVisible = true;
 
+            //tonen van icoon
+            MapIcon mapIcon = new MapIcon();
+            mapIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/Square71x71Logo.scale-240.png"));
+            mapIcon.NormalizedAnchorPoint = new Point(0.5, 0.5);
+            mapIcon.Title = current_spot.Naam;
+            mapIcon.Location=new Geopoint(new BasicGeoposition()
+            {
+                Latitude = 51.0543422,
+                Longitude = 3.7174243
+            });
 
+            MapControlLocation.MapElements.Add(mapIcon);
         }
 
         private void Set_Contact(ISpot s)
@@ -198,6 +223,11 @@ namespace GandaVisit
             {
                 BtnAddVisit.Content = "Add to visists";
             }
+        }
+
+        private void Go_Location(object sender, TappedRoutedEventArgs e)
+        {
+            DetailsPivot.SelectedIndex = 3;
         }
 
 

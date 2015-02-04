@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Pivot x:Name="pivotMain" Title="GandaVisit" Margin="-10,0,10,0">
+        <Pivot x:Name="pivotMain" Title="Seeing Ghent" Margin="-10,0,10,0">
             <PivotItem x:Name="Menu" Header="Menu">
                 <Grid>
                     <TextBlock x:ConnectionId='4' x:Name="TxtMyVisits" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="My Visits" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="49" Width="342" FontSize="36"                  />

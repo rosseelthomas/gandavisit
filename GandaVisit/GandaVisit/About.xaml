@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Pivot Title="GandaVisit">
+        <Pivot Title="Seeing Ghent">
             <PivotItem Header="About" Margin="10,0,0,-0.5">
                 <StackPanel>
                     <Grid Height="93">
