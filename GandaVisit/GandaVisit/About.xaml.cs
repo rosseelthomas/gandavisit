@@ -28,7 +28,7 @@ namespace GandaVisit
         {
             this.InitializeComponent();
             PackageVersion pv = Package.Current.Id.Version;
-            txtVersion.Text = pv.Build.ToString();
+            txtVersion.Text = pv.Major.ToString() + "." + pv.Minor.ToString() + "." + pv.Build.ToString() + "."+pv.Revision.ToString();
 
             HardwareButtons.BackPressed += OnBackPressed;
         }

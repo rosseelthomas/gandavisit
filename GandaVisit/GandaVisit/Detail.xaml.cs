@@ -302,6 +302,15 @@ namespace GandaVisit
             DetailsPivot.SelectedIndex = 3;
             MapControlLocation.MapElements.Clear();
             MapControlLocation.Routes.Clear();
+
+            //naar huidig spot gaan
+            Geopoint p = new Geopoint(new BasicGeoposition()
+            {
+                Latitude = current_spot.Latitude,
+                Longitude = current_spot.Longitude
+            });
+
+            Set_Map(p, current_spot.Naam);
         }
 
         private void btnRoute_Click(object sender, RoutedEventArgs e)

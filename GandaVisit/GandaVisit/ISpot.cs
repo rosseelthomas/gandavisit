@@ -9,6 +9,7 @@ namespace GandaVisit
 {
     public interface ISpot
     {
+        int Id { get; set; }
         string Naam { get; set; }
         string ImgLink { get; set; }
         string Description { get; set; }

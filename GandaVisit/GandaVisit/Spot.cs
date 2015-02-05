@@ -8,6 +8,7 @@ namespace GandaVisit
 {
     public class Spot:ISpot
     {
+        private int id;
         private string naam;
         private string imgLink;
         private string description;
@@ -15,10 +16,12 @@ namespace GandaVisit
         private bool isVisits;
         private double longitude;
         private double latitude;
+
         public Spot()
         {
             contact = new ContactInfo();
         }
+
         public string Naam
         {
             get
@@ -67,7 +70,6 @@ namespace GandaVisit
             }
         }
 
-
         public bool IsVisists
         {
             get
@@ -80,9 +82,17 @@ namespace GandaVisit
             }
         }
 
-
-
-
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
 
         public double Latitude
         {
@@ -107,5 +117,7 @@ namespace GandaVisit
                 longitude = value;
             }
         }
+
+      
     }
 }
