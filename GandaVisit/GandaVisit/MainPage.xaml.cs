@@ -32,7 +32,7 @@ namespace GandaVisit
 
             dao = (ISpotDAO)App.Current.Resources["dao"];
 
-            lblVisits.ItemsSource = dao.Visits;
+            
         }
 
         /// <summary>
@@ -51,8 +51,12 @@ namespace GandaVisit
             // this event is handled for you.
 
             //updaten visits menu
-            lblVisits.ItemsSource = dao.Visits;
+            //lblVisits.SelectedIndex = -1;
 
+            //Om crash te vermijden
+            lblVisits.ItemsSource=null;
+            lblVisits.ItemsSource = dao.Visits;
+            
             
             lbResults.SelectedIndex = -1;
             
@@ -68,6 +72,7 @@ namespace GandaVisit
             prSearch.IsActive = false;
             prSearch.Visibility = Visibility.Collapsed;
             lbResults.ItemsSource = lijst;
+            
             if (lijst.Count == 0)
             {
                 txtNotFound.Visibility = Visibility.Visible;
@@ -98,7 +103,7 @@ namespace GandaVisit
             if (box.SelectedIndex != -1)
             {
                 ISpot geselecteerd = (ISpot)box.SelectedItem;
-
+         
                 //ophalen details
                 await dao.AddDetails(geselecteerd);
                 Frame.Navigate(typeof(Detail), geselecteerd);

@@ -85,7 +85,6 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
       <RootEvent Name="Click" />
-      <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="GandaVisit.Detail" />
     <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">

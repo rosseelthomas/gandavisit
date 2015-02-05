@@ -12,10 +12,11 @@ namespace GandaVisit
     {
 
         private HttpClient httpClient = new HttpClient();
+        private List<ISpot> visits = new List<ISpot>();
          
         public List<ISpot> Visits
         {
-            get { return new List<ISpot>(); }
+            get { return visits; }
         }
 
         public async Task<List<ISpot>> SearchName(string value)
@@ -42,12 +43,15 @@ namespace GandaVisit
 
         public void AddVisits(ISpot s)
         {
-          
+            visits.Add(s);
+            s.IsVisists = true;
         }
 
         public void RemoveVisits(ISpot s)
         {
-            
+            visits.Remove(s);
+            s.IsVisists = false;
+
         }
 
         public List<ISpot> parseIdNaam(string json)
@@ -102,6 +106,13 @@ namespace GandaVisit
             }
         }
 
+        private void SaveVisits()
+        {
+            int[] ids = new int[10];
+            
 
+            JsonArray jobject = new JsonArray();
+            
+        }
     }
 }
