@@ -37,6 +37,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="IsTextSelectionEnabled" />
       <RootProperty Name="IsHitTestVisible" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="RenderTransformOrigin" />
       <RootEvent Name="Tapped" />
     </RootType>
@@ -87,6 +88,12 @@
       <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="GandaVisit.Detail" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalContentAlignment" />
+      <RootProperty Name="HorizontalContentAlignment" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListBox">
       <RootProperty Name="Margin" />
       <RootProperty Name="BorderBrush" />
@@ -94,6 +101,7 @@
       <RootProperty Name="DisplayMemberPath" />
       <RootProperty Name="Background" />
       <RootProperty Name="Foreground" />
+      <RootProperty Name="Visibility" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.NullExtension" />

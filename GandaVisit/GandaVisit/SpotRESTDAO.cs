@@ -12,7 +12,7 @@ namespace GandaVisit
     {
 
         private HttpClient httpClient = new HttpClient();
-
+         
         public List<ISpot> Visits
         {
             get { return new List<ISpot>(); }

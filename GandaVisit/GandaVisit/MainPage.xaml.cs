@@ -53,15 +53,31 @@ namespace GandaVisit
             //updaten visits menu
             lblVisits.ItemsSource = dao.Visits;
 
-            //search leegmaken
+            
             lbResults.SelectedIndex = -1;
-
+            
         }
-
+        
         private async void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            lbResults.ItemsSource = await dao.SearchName(txtSearch.Text);
-
+            txtNotFound.Visibility = Visibility.Collapsed;
+            lbResults.Visibility = Visibility.Collapsed;
+            prSearch.Visibility = Visibility.Visible;
+            prSearch.IsActive = true;
+            List<ISpot> lijst = await dao.SearchName(txtSearch.Text);
+            prSearch.IsActive = false;
+            prSearch.Visibility = Visibility.Collapsed;
+            lbResults.ItemsSource = lijst;
+            if (lijst.Count == 0)
+            {
+                txtNotFound.Visibility = Visibility.Visible;
+                lbResults.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                txtNotFound.Visibility = Visibility.Collapsed;
+                lbResults.Visibility = Visibility.Visible;
+            }
 
         }
 

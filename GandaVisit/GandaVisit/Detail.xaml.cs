@@ -244,8 +244,9 @@ namespace GandaVisit
                 mapIcon.NormalizedAnchorPoint = new Point(0.5, 1);
                 mapIcon.Title = text;
                 mapIcon.Location = p;
-
+                mapIcon.ZIndex = int.MaxValue;
                 MapControlLocation.MapElements.Add(mapIcon);
+               
             }
             catch (Exception ex)
             {
