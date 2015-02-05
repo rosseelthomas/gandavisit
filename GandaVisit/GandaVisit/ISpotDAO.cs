@@ -10,10 +10,10 @@ namespace GandaVisit
     {
         //Voor dataverbruik te verlagen: Alleen belangrijke info afhalen: bv alleen naam
         List<ISpot> Visits { get;}
-        List<ISpot> SearchName(string value);
+        Task<List<ISpot>> SearchName(string value);
 
         //om data verbruik te verlagen: de geselecteerde spot waarvand e details getoond worden worden de details afgehaald
-        void AddDetails(ISpot spot);
+        Task AddDetails(ISpot spot);
 
         //toevoegen/verwijderen van je visits lijst
         void AddVisits(ISpot s);

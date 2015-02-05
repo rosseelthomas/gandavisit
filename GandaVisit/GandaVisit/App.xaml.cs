@@ -47,7 +47,7 @@ namespace GandaVisit
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            this.Resources["dao"] = DummySpotDAO.Instance;
+            this.Resources["dao"] = new SpotRESTDAO();
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {

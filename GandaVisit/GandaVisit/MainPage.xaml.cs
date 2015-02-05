@@ -54,15 +54,15 @@ namespace GandaVisit
             lblVisits.ItemsSource = dao.Visits;
 
             //search leegmaken
-            txtSearch.Text = "";
-            lbResults.ItemsSource = new List<ISpot>();
+            lbResults.SelectedIndex = -1;
 
         }
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        private async void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            lbResults.ItemsSource=dao.SearchName(txtSearch.Text);
-           
+            lbResults.ItemsSource = await dao.SearchName(txtSearch.Text);
+
+
         }
 
         private void GoVisits(object sender, TappedRoutedEventArgs e)
@@ -73,18 +73,22 @@ namespace GandaVisit
         private void GO_Search(object sender, TappedRoutedEventArgs e)
         {
             pivotMain.SelectedIndex = 2;
-            
+
         }
 
-        private void Go_Detail(object sender, SelectionChangedEventArgs e)
+        private async void Go_Detail(object sender, SelectionChangedEventArgs e)
         {
             ListBox box = (ListBox)sender;
-            ISpot geselecteerd = (ISpot)box.SelectedItem;
-            
-            //ophalen details
-            dao.AddDetails(geselecteerd);
-            Frame.Navigate(typeof(Detail),geselecteerd);
-        
+            if (box.SelectedIndex != -1)
+            {
+                ISpot geselecteerd = (ISpot)box.SelectedItem;
+
+                //ophalen details
+                await dao.AddDetails(geselecteerd);
+                Frame.Navigate(typeof(Detail), geselecteerd);
+            }
+
+
         }
 
         private void GO_About(object sender, TappedRoutedEventArgs e)
@@ -92,6 +96,6 @@ namespace GandaVisit
             Frame.Navigate(typeof(About));
         }
 
-       
+
     }
 }

@@ -8,17 +8,17 @@ namespace GandaVisit
 {
     public class ContactInfo
     {
-        private int phoneNumber;
+        private string phoneNumber;
         private string email;
         private string website;
-        private int fax;
+        private string fax;
 
         //adres info
         private int adressNumber;
         private string street;
         private string city;
 
-        public int PhoneNumber
+        public string PhoneNumber
         {
             get { return phoneNumber; }
             set { phoneNumber = value; }
@@ -36,7 +36,7 @@ namespace GandaVisit
             set { website = value; }
         }
 
-        public int Fax
+        public string Fax
         {
             get { return fax; }
             set { fax = value; }

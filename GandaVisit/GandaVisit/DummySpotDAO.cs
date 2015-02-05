@@ -25,9 +25,9 @@ namespace GandaVisit
             belfort.Contact.AdressNumber = 999;
             belfort.Contact.City = "9000 Gent";
             belfort.Contact.Street = "BelfortStreet";
-            belfort.Contact.PhoneNumber = 5503403;
+            belfort.Contact.PhoneNumber = "5503403";
             belfort.Contact.Website = "http://www.bing.com";
-            belfort.Contact.Fax = 9744;
+            belfort.Contact.Fax = "9744";
             belfort.Contact.Email = "thomas_deSwag@swekmal.com";
             belfort.IsVisists = true;
 
@@ -94,6 +94,17 @@ namespace GandaVisit
         public static DummySpotDAO Instance
         {
             get { return instance; }
+        }
+
+
+        Task<List<ISpot>> ISpotDAO.SearchName(string value)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task ISpotDAO.AddDetails(ISpot spot)
+        {
+            throw new NotImplementedException();
         }
     }
 }

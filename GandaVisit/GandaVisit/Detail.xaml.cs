@@ -61,9 +61,21 @@ namespace GandaVisit
 
             current_spot = s;
             //instellen van de juiste gegevens
-            TxtDiscription.Text = s.Description;
+            if (s.Description != null)
+            {
+                TxtDiscription.Text = s.Description;
+            }
+            else
+            {
+                TxtDiscription.Text = "No Description found";
+            }
+            
             DetailsPivot.Title = s.Naam;
+            if (s.ImgLink != null)
+            {
             ImgDetail.Source = new BitmapImage(new Uri(s.ImgLink));
+            }
+            
 
             //instellen Contact
             Set_Contact();
@@ -120,7 +132,7 @@ namespace GandaVisit
 
             }
 
-            if (current_spot.Contact.Fax != 0)
+            if (current_spot.Contact.Fax != null)
             {
                 gFax.Visibility = Visibility.Visible;
                 txtFax.Text = current_spot.Contact.Fax.ToString();
@@ -130,7 +142,7 @@ namespace GandaVisit
                 gFax.Visibility = Visibility.Collapsed;
             }
 
-            if (current_spot.Contact.PhoneNumber != 0)
+            if (current_spot.Contact.PhoneNumber != null)
             {
                 gPhone.Visibility = Visibility.Visible;
                 txtPhone.Text = current_spot.Contact.PhoneNumber.ToString();
@@ -163,7 +175,7 @@ namespace GandaVisit
 
         private void Phone_Pressed(object sender, TappedRoutedEventArgs e)
         {
-            Windows.ApplicationModel.Calls.PhoneCallManager.ShowPhoneCallUI(current_spot.Contact.PhoneNumber.ToString(), current_spot.Naam);
+            Windows.ApplicationModel.Calls.PhoneCallManager.ShowPhoneCallUI(current_spot.Contact.PhoneNumber, current_spot.Naam);
 
         }
 
