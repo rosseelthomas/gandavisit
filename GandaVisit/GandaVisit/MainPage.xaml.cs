@@ -32,7 +32,8 @@ namespace GandaVisit
 
             dao = (ISpotDAO)App.Current.Resources["dao"];
 
-            
+            dao.LoadVisits();
+         
         }
 
         /// <summary>

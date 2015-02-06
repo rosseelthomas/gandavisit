@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Data.Json;
+using Windows.Storage;
 
 namespace GandaVisit
 {
@@ -13,7 +14,7 @@ namespace GandaVisit
 
         private HttpClient httpClient = new HttpClient();
         private List<ISpot> visits = new List<ISpot>();
-         
+
         public List<ISpot> Visits
         {
             get { return visits; }
@@ -32,11 +33,16 @@ namespace GandaVisit
 
         public async Task AddDetails(ISpot spot)
         {
-            var response = await httpClient.GetAsync(new Uri(string.Format(Constants.details, spot.Id)));
+            //foto is altijd aanwezig, dus als de foto er niet inzit zijn de details nog niet opgehaald
+            if (spot.ImgLink == null)
+            {
+                var response = await httpClient.GetAsync(new Uri(string.Format(Constants.details, spot.Id)));
 
-            string json = await response.Content.ReadAsStringAsync();
+                string json = await response.Content.ReadAsStringAsync();
 
-            parseDetails(json, spot);
+                parseDetails(json, spot);
+            }
+
         }
 
 
@@ -45,13 +51,14 @@ namespace GandaVisit
         {
             visits.Add(s);
             s.IsVisists = true;
+            SaveVisits();
         }
 
         public void RemoveVisits(ISpot s)
         {
             visits.Remove(s);
             s.IsVisists = false;
-
+            SaveVisits();
         }
 
         public List<ISpot> parseIdNaam(string json)
@@ -89,7 +96,7 @@ namespace GandaVisit
                 spot.Latitude = jobject.GetArray().GetObjectAt(0).GetNamedNumber("latitude");
                 spot.Longitude = jobject.GetArray().GetObjectAt(0).GetNamedNumber("longitude");
 
-              
+
                 spot.Contact.AdressNumber = (Int32)jobject.GetArray().GetObjectAt(0).GetNamedNumber("number");
                 spot.Contact.City = jobject.GetArray().GetObjectAt(0).GetNamedString("city");
                 spot.Contact.Street = jobject.GetArray().GetObjectAt(0).GetNamedString("street");
@@ -98,7 +105,7 @@ namespace GandaVisit
                 spot.Contact.Email = jobject.GetArray().GetObjectAt(0).GetNamedString("email");
                 spot.Contact.Fax = jobject.GetArray().GetObjectAt(0).GetNamedString("fax");
                 spot.Contact.Website = jobject.GetArray().GetObjectAt(0).GetNamedString("website");
-               
+
             }
             catch (Exception ex)
             {
@@ -108,11 +115,53 @@ namespace GandaVisit
 
         private void SaveVisits()
         {
-            int[] ids = new int[10];
-            
+            StringBuilder s = new StringBuilder();
+            foreach (ISpot spot in visits)
+            {
+                s.Append(";");
+                s.Append(spot.Id);
+            }
+            ApplicationData.Current.LocalSettings.Values["visits"] = s.ToString();
 
-            JsonArray jobject = new JsonArray();
-            
+
+        }
+
+        public async Task LoadVisits()
+        {
+            string s = (string)ApplicationData.Current.LocalSettings.Values["visits"];
+            if (s != null || !s.Equals(""))
+            {
+                string[] ids = s.Split(';');
+                foreach (string id in ids)
+                {
+                    //als je split is de eerste id altijd "" omdat vooraan ook ; geplaatst wordt
+                    if (id != "")
+                    {
+                    int iid = Convert.ToInt32(id);
+
+
+
+                    var response = await httpClient.GetAsync(new Uri(string.Format(Constants.details, iid)));
+
+                    string json = await response.Content.ReadAsStringAsync();
+
+                    ISpot spot = new Spot();
+                    spot.Id = iid;
+                    spot.IsVisists = true;
+                    ParseNaam(json, spot);
+
+                    visits.Add(spot);
+                    }
+
+                }
+            }
+        }
+
+        public void ParseNaam(string json, ISpot spot)
+        {
+            JsonArray jobject = JsonArray.Parse(json);
+            spot.Naam = jobject.GetObjectAt(0).GetNamedString("title");
+
         }
     }
 }

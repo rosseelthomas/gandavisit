@@ -106,5 +106,11 @@ namespace GandaVisit
         {
             throw new NotImplementedException();
         }
+
+
+        public Task LoadVisits()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -18,5 +18,7 @@ namespace GandaVisit
         //toevoegen/verwijderen van je visits lijst
         void AddVisits(ISpot s);
         void RemoveVisits(ISpot s);
+
+        Task LoadVisits();
     }
 }
