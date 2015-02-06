@@ -137,7 +137,7 @@ namespace GandaVisit
         public async Task LoadVisits()
         {
             string s = (string)ApplicationData.Current.LocalSettings.Values["visits"];
-            if (s != null || !s.Equals(""))
+            if (s != null)
             {
                 string[] ids = s.Split(';');
                 foreach (string id in ids)

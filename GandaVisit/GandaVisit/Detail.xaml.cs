@@ -95,14 +95,14 @@ namespace GandaVisit
         private void Set_Contact()
         {
             //address
-            if (current_spot.Contact.City == null && current_spot.Contact.AdressNumber == 0 && current_spot.Contact.Street == null)
+            if (!current_spot.Contact.City.Equals("") && current_spot.Contact.AdressNumber == 0 &&! current_spot.Contact.Street.Equals(""))
             {
                 gAdres.Visibility = Visibility.Collapsed;
             }
             else
             {
                 gAdres.Visibility = Visibility.Visible;
-                if (current_spot.Contact.City != null)
+                if (!current_spot.Contact.City.Equals(""))
                 {
                     txtCity.Visibility = Visibility.Visible;
                     txtCity.Text = current_spot.Contact.City;
@@ -112,7 +112,7 @@ namespace GandaVisit
                     txtCity.Visibility = Visibility.Collapsed;
                 }
 
-                if (current_spot.Contact.Street != null)
+                if (!current_spot.Contact.Street.Equals(""))
                 {
 
                     txtStreet.Visibility = Visibility.Visible;
@@ -133,7 +133,7 @@ namespace GandaVisit
 
             }
 
-            if (current_spot.Contact.Fax != null)
+            if (!current_spot.Contact.Fax.Equals(""))
             {
                 gFax.Visibility = Visibility.Visible;
                 txtFax.Text = current_spot.Contact.Fax.ToString();
@@ -143,7 +143,7 @@ namespace GandaVisit
                 gFax.Visibility = Visibility.Collapsed;
             }
 
-            if (current_spot.Contact.PhoneNumber != null)
+            if (!current_spot.Contact.PhoneNumber.Equals(""))
             {
                 gPhone.Visibility = Visibility.Visible;
                 txtPhone.Text = current_spot.Contact.PhoneNumber.ToString();
@@ -153,7 +153,7 @@ namespace GandaVisit
                 gPhone.Visibility = Visibility.Collapsed;
             }
 
-            if (current_spot.Contact.Website != null)
+            if (!current_spot.Contact.Website.Equals(""))
             {
                 gWebsite.Visibility = Visibility.Visible;
                 txtWebsite.Text = current_spot.Contact.Website;
@@ -163,7 +163,7 @@ namespace GandaVisit
                 gWebsite.Visibility = Visibility.Collapsed;
             }
 
-            if (current_spot.Contact.Email != null)
+            if (!current_spot.Contact.Email.Equals(""))
             {
                 gEmail.Visibility = Visibility.Visible;
                 txtEmail.Text = current_spot.Contact.Email;
