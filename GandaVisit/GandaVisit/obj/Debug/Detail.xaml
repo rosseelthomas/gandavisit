@@ -27,8 +27,9 @@
         <Pivot x:Name="DetailsPivot" Title="Pivot">
             <PivotItem Header="Menu">
                 <Grid>
-                    <Image x:Name="ImgDetail" HorizontalAlignment="Left" Height="317" Margin="10,10,0,0" VerticalAlignment="Top" Width="342" Source="Assets/Logo.png" Stretch="Fill"/>
+                    <Image x:Name="ImgDetail" HorizontalAlignment="Center" Height="121" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Source="Assets/Logo.png" Stretch="Fill"/>
                     <Button x:ConnectionId='6' x:Name="BtnAddVisit" Content="Add to visits" HorizontalAlignment="Left" Height="55" Margin="68,363,0,0" VerticalAlignment="Top" Width="207"                          />
+                    <TextBlock x:Name="txtSummuray" HorizontalAlignment="Left" Height="191" Margin="10,164,0,0" TextWrapping="Wrap" Text="Summuray" VerticalAlignment="Top" Width="342" FontSize="24" TextAlignment="Center"/>
                 </Grid>
             </PivotItem>
             <PivotItem Header="Description">

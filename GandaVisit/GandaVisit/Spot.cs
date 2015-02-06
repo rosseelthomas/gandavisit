@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace GandaVisit
 {
-    public class Spot:ISpot
+    public class Spot : ISpot
     {
         private int id;
         private string naam;
         private string imgLink;
         private string description;
+        private string summary;
         private ContactInfo contact;
         private bool isVisits;
         private double longitude;
@@ -98,11 +99,11 @@ namespace GandaVisit
         {
             get
             {
-               return latitude;
+                return latitude;
             }
             set
             {
-                latitude=value;
+                latitude = value;
             }
         }
 
@@ -118,6 +119,16 @@ namespace GandaVisit
             }
         }
 
-      
+        public string Summary
+        {
+            get
+            {
+                return summary;
+            }
+            set
+            {
+                summary = value ;
+            }
+        }
     }
 }

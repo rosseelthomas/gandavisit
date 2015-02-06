@@ -20,5 +20,7 @@ namespace GandaVisit
         void RemoveVisits(ISpot s);
 
         Task LoadVisits();
+
+        void ClearVisits();
     }
 }

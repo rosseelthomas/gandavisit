@@ -60,6 +60,7 @@ namespace GandaVisit
             ISpot s = (ISpot)e.Parameter;
 
             current_spot = s;
+
             //instellen van de juiste gegevens
             if (s.Description != null)
             {
@@ -75,7 +76,7 @@ namespace GandaVisit
             {
             ImgDetail.Source = new BitmapImage(new Uri(s.ImgLink));
             }
-            
+            txtSummuray.Text = s.Summary;
 
             //instellen Contact
             Set_Contact();

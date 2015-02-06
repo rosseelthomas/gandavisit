@@ -24,6 +24,7 @@ namespace GandaVisit
     {
 
         ISpotDAO dao;
+        bool first_load = true;
         public MainPage()
         {
             this.InitializeComponent();
@@ -34,19 +35,23 @@ namespace GandaVisit
 
             this.Loaded += MainPage_Loaded;
 
-            
-         
+
         }
 
         async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            prVisits.Visibility = Visibility.Visible;
-            prVisits.IsActive = true;
-            await dao.LoadVisits();
-            prVisits.IsActive = false;
-            prVisits.Visibility = Visibility.Collapsed;
-            lblVisits.ItemsSource = null;
-            lblVisits.ItemsSource = dao.Visits;
+            if (first_load)
+            {
+                prVisits.Visibility = Visibility.Visible;
+                prVisits.IsActive = true;
+                await dao.LoadVisits();
+                prVisits.IsActive = false;
+                prVisits.Visibility = Visibility.Collapsed;
+                lblVisits.ItemsSource = null;
+                lblVisits.ItemsSource = dao.Visits;
+                first_load = false;
+            }
+
         }
 
         /// <summary>
@@ -68,14 +73,14 @@ namespace GandaVisit
             //lblVisits.SelectedIndex = -1;
 
             //Om crash te vermijden
-            lblVisits.ItemsSource=null;
+            lblVisits.ItemsSource = null;
             lblVisits.ItemsSource = dao.Visits;
-            
-            
+
+
             lbResults.SelectedIndex = -1;
-            
+
         }
-        
+
         private async void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             txtNotFound.Visibility = Visibility.Collapsed;
@@ -86,7 +91,7 @@ namespace GandaVisit
             prSearch.IsActive = false;
             prSearch.Visibility = Visibility.Collapsed;
             lbResults.ItemsSource = lijst;
-            
+
             if (lijst.Count == 0)
             {
                 txtNotFound.Visibility = Visibility.Visible;
@@ -117,12 +122,15 @@ namespace GandaVisit
             if (box.SelectedIndex != -1)
             {
                 ISpot geselecteerd = (ISpot)box.SelectedItem;
-         
+
                 //ophalen details
-                prSearch.Visibility = Visibility.Collapsed;
-                prSearch.IsActive = true;
+                btnSearch.Visibility = Visibility.Collapsed;
+                prDetails.Visibility = Visibility.Visible;
+                prDetails.IsActive = true;
                 await dao.AddDetails(geselecteerd);
-                prSearch.Visibility = Visibility.Collapsed;
+                prDetails.IsActive = false;
+                prDetails.Visibility = Visibility.Collapsed;
+                btnSearch.Visibility = Visibility.Visible;
                 Frame.Navigate(typeof(Detail), geselecteerd);
             }
 
@@ -134,6 +142,13 @@ namespace GandaVisit
             Frame.Navigate(typeof(About));
         }
 
-       
+        private void btnClearVisits_Click(object sender, RoutedEventArgs e)
+        {
+            lblVisits.ItemsSource = null;
+            dao.ClearVisits();
+            lblVisits.ItemsSource = dao.Visits;
+        }
+
+
     }
 }

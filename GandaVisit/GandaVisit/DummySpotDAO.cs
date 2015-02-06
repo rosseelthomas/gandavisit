@@ -112,5 +112,11 @@ namespace GandaVisit
         {
             throw new NotImplementedException();
         }
+
+
+        public void ClearVisits()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -7,29 +7,38 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.BottomAppBar>
+        <CommandBar ClosedDisplayMode="Minimal">
+            <AppBarButton x:ConnectionId='1' x:Name="btnClearVisits" Icon="Clear" Label="Clear visits"                             />
+        </CommandBar>
+    </Page.BottomAppBar>
 
     <Grid>
         <Pivot x:Name="pivotMain" Title="Seeing Ghent" Margin="-10,0,10,0">
             <PivotItem x:Name="Menu" Header="Menu">
                 <Grid>
-                    <TextBlock x:ConnectionId='4' x:Name="TxtMyVisits" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="My Visits" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="49" Width="342" FontSize="36"                  />
-                    <TextBlock x:ConnectionId='5' x:Name="TxtSearch" HorizontalAlignment="Left" Margin="10,64,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="47" Width="342" FontSize="36"                   />
-                    <TextBlock x:ConnectionId='6' x:Name="TxtAbout" HorizontalAlignment="Left" Margin="10,111,0,0" TextWrapping="Wrap" Text="About" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="47" Width="342" FontSize="36"                  />
+                    <TextBlock x:ConnectionId='5' x:Name="TxtMyVisits" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="My Visits" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="49" Width="342" FontSize="36"                  />
+                    <TextBlock x:ConnectionId='6' x:Name="TxtSearch" HorizontalAlignment="Left" Margin="10,64,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="47" Width="342" FontSize="36"                   />
+                    <TextBlock x:ConnectionId='7' x:Name="TxtAbout" HorizontalAlignment="Left" Margin="10,111,0,0" TextWrapping="Wrap" Text="About" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="47" Width="342" FontSize="36"                  />
                 </Grid>
             </PivotItem>
             <PivotItem Header="My visits">
                 <StackPanel Margin="0,0,0,10">
                     <ProgressRing x:Name="prVisits" Margin="0"/>
-                    <ListBox x:ConnectionId='3' x:Name="lblVisits" Margin="0,0,0,0" BorderBrush="{x:Null}" FontSize="36"                              DisplayMemberPath="Naam" Background="{x:Null}" Foreground="{ThemeResource ButtonForegroundThemeBrush}"/>
+                    
+                        <ListBox x:ConnectionId='4' x:Name="lblVisits" Margin="0,0,0,0" BorderBrush="{x:Null}" FontSize="36"                              DisplayMemberPath="Naam" Background="{x:Null}" Foreground="{ThemeResource ButtonForegroundThemeBrush}"/>
+                    
+                    
                 </StackPanel>
             </PivotItem>
-            <PivotItem Header="Search" Margin="10,0,0,-0.5">
+            <PivotItem Header="Search" Margin="10,0,0,0">
                 <StackPanel Margin="10,0,0,0">
-                    <Grid Height="62">
-                        <Button x:ConnectionId='2' x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="261,0,0,0" VerticalAlignment="Top"                         Width="50"/>
-                        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
-                    </Grid>
-                    <ProgressRing x:Name="prSearch" Height="100" Margin="0,0,-11,0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                    <StackPanel Height="60" Orientation="Horizontal" >
+                        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+                        <Button x:ConnectionId='3' x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"                         Width="50"/>
+                        <ProgressRing x:Name="prDetails" Height="50" Margin="10,0,0,0" VerticalAlignment="Top" Width="50" IsActive="False" Visibility="Collapsed" />
+                    </StackPanel>
+                    <ProgressRing x:Name="prSearch" Margin="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
                     <Grid>
                         <TextBlock x:Name="txtNotFound" Text="No results Found" HorizontalAlignment="Center" FontSize="24" Visibility="Collapsed"/>
                     </Grid>
@@ -37,8 +46,9 @@
 
 
                     <Grid Height="468">
-                        <ListBox x:ConnectionId='1' x:Name="lbResults" Margin="0,0,0,10" BorderBrush="{x:Null}" FontSize="36"                              DisplayMemberPath="Naam" Background="{x:Null}" Foreground="{ThemeResource ButtonForegroundThemeBrush}" Visibility="Collapsed"/>
+                        <ListBox x:ConnectionId='2' x:Name="lbResults" Margin="0,0,0,10" BorderBrush="{x:Null}" FontSize="36"                              DisplayMemberPath="Naam" Background="{x:Null}" Foreground="{ThemeResource ButtonForegroundThemeBrush}" Visibility="Collapsed"/>
                     </Grid>
+                
 
 
                 </StackPanel>

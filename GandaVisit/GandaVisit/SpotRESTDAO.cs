@@ -95,16 +95,24 @@ namespace GandaVisit
                 spot.ImgLink = jobject.GetArray().GetObjectAt(0).GetNamedString("thumbnail");
                 spot.Latitude = jobject.GetArray().GetObjectAt(0).GetNamedNumber("latitude");
                 spot.Longitude = jobject.GetArray().GetObjectAt(0).GetNamedNumber("longitude");
+                spot.Summary = jobject.GetArray().GetObjectAt(0).GetNamedString("summary");
 
+                try
+                {
+                    spot.Contact.AdressNumber = (Int32)jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedNumber("number");
+                }
+                catch (Exception ex)
+                {
 
-                spot.Contact.AdressNumber = (Int32)jobject.GetArray().GetObjectAt(0).GetNamedNumber("number");
-                spot.Contact.City = jobject.GetArray().GetObjectAt(0).GetNamedString("city");
-                spot.Contact.Street = jobject.GetArray().GetObjectAt(0).GetNamedString("street");
+                }
+                
+                spot.Contact.City = jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedString("city");
+                spot.Contact.Street = jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedString("street");
 
-                spot.Contact.PhoneNumber = jobject.GetArray().GetObjectAt(0).GetNamedString("tel");
-                spot.Contact.Email = jobject.GetArray().GetObjectAt(0).GetNamedString("email");
-                spot.Contact.Fax = jobject.GetArray().GetObjectAt(0).GetNamedString("fax");
-                spot.Contact.Website = jobject.GetArray().GetObjectAt(0).GetNamedString("website");
+                spot.Contact.PhoneNumber = jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedString("tel");
+                spot.Contact.Email = jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedString("email");
+                spot.Contact.Fax = jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedString("fax");
+                spot.Contact.Website = jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedString("website");
 
             }
             catch (Exception ex)
@@ -162,6 +170,13 @@ namespace GandaVisit
             JsonArray jobject = JsonArray.Parse(json);
             spot.Naam = jobject.GetObjectAt(0).GetNamedString("title");
 
+        }
+
+
+        public void ClearVisits()
+        {
+            visits.Clear();
+            SaveVisits();
         }
     }
 }
