@@ -8,7 +8,7 @@ namespace GandaVisit
 {
     public class Spot : ISpot
     {
-        private int id;
+        private string id;
         private string naam;
         private string imgLink;
         private string description;
@@ -83,7 +83,7 @@ namespace GandaVisit
             }
         }
 
-        public int Id
+        public string Id
         {
             get
             {

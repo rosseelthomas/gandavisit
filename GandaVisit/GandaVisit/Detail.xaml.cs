@@ -95,7 +95,7 @@ namespace GandaVisit
         private void Set_Contact()
         {
             //address
-            if (!current_spot.Contact.City.Equals("") && current_spot.Contact.AdressNumber == 0 &&! current_spot.Contact.Street.Equals(""))
+            if (!current_spot.Contact.City.Equals("") && current_spot.Contact.AdressNumber.Equals("") &&! current_spot.Contact.Street.Equals(""))
             {
                 gAdres.Visibility = Visibility.Collapsed;
             }
@@ -116,7 +116,7 @@ namespace GandaVisit
                 {
 
                     txtStreet.Visibility = Visibility.Visible;
-                    if (current_spot.Contact.AdressNumber != 0)
+                    if (current_spot.Contact.AdressNumber.Equals(""))
                     {
                         txtStreet.Text = current_spot.Contact.Street + " " + current_spot.Contact.AdressNumber;
                     }

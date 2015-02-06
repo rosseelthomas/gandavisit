@@ -14,7 +14,7 @@ namespace GandaVisit
         private string fax;
 
         //adres info
-        private int adressNumber;
+        private string adressNumber;
         private string street;
         private string city;
 
@@ -42,7 +42,7 @@ namespace GandaVisit
             set { fax = value; }
         }
 
-        public int AdressNumber
+        public string AdressNumber
         {
             get { return adressNumber; }
             set { adressNumber = value; }

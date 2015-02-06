@@ -71,7 +71,7 @@ namespace GandaVisit
                 for (uint i = 0; i < jobject.GetArray().Count; i++)
                 {
                     ISpot spot = new Spot();
-                    spot.Id = (Int32)(jobject.GetArray().GetObjectAt(i).GetNamedNumber("id"));
+                    spot.Id = jobject.GetArray().GetObjectAt(i).GetNamedString("id");
                     spot.Naam = jobject.GetObjectAt(i).GetNamedString("title");
                     geparset.Add(spot);
                 }
@@ -97,15 +97,9 @@ namespace GandaVisit
                 spot.Longitude = jobject.GetArray().GetObjectAt(0).GetNamedNumber("longitude");
                 spot.Summary = jobject.GetArray().GetObjectAt(0).GetNamedString("summary");
 
-                try
-                {
-                    spot.Contact.AdressNumber = (Int32)jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedNumber("number");
-                }
-                catch (Exception ex)
-                {
-
-                }
                 
+                    spot.Contact.AdressNumber = jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedString("number");
+               
                 spot.Contact.City = jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedString("city");
                 spot.Contact.Street = jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedString("street");
 
@@ -144,17 +138,16 @@ namespace GandaVisit
                 {
                     //als je split is de eerste id altijd "" omdat vooraan ook ; geplaatst wordt
                     if (id != "")
-                    {
-                    int iid = Convert.ToInt32(id);
+                    {                 
 
 
 
-                    var response = await httpClient.GetAsync(new Uri(string.Format(Constants.details, iid)));
+                    var response = await httpClient.GetAsync(new Uri(string.Format(Constants.details, id)));
 
                     string json = await response.Content.ReadAsStringAsync();
 
                     ISpot spot = new Spot();
-                    spot.Id = iid;
+                    spot.Id = id;
                     spot.IsVisists = true;
                     ParseNaam(json, spot);
 
