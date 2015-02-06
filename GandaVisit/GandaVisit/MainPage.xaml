@@ -18,9 +18,10 @@
                 </Grid>
             </PivotItem>
             <PivotItem Header="My visits">
-                <Grid>
-                    <ListBox x:Name="lblVisits" Margin="8,0,0,8" BorderBrush="{x:Null}" FontSize="36" SelectionChanged="Go_Detail" DisplayMemberPath="Naam" Background="{x:Null}" Foreground="{ThemeResource ButtonForegroundThemeBrush}"/>
-                </Grid>
+                <StackPanel Margin="0,0,0,10">
+                    <ProgressRing x:Name="prVisits" Margin="0"/>
+                    <ListBox x:Name="lblVisits" Margin="0,0,0,0" BorderBrush="{x:Null}" FontSize="36" SelectionChanged="Go_Detail" DisplayMemberPath="Naam" Background="{x:Null}" Foreground="{ThemeResource ButtonForegroundThemeBrush}"/>
+                </StackPanel>
             </PivotItem>
             <PivotItem Header="Search" Margin="10,0,0,-0.5">
                 <StackPanel Margin="10,0,0,0">

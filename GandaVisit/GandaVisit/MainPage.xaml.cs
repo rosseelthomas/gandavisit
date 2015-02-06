@@ -32,8 +32,21 @@ namespace GandaVisit
 
             dao = (ISpotDAO)App.Current.Resources["dao"];
 
-            dao.LoadVisits();
+            this.Loaded += MainPage_Loaded;
+
+            
          
+        }
+
+        async void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            prVisits.Visibility = Visibility.Visible;
+            prVisits.IsActive = true;
+            await dao.LoadVisits();
+            prVisits.IsActive = false;
+            prVisits.Visibility = Visibility.Collapsed;
+            lblVisits.ItemsSource = null;
+            lblVisits.ItemsSource = dao.Visits;
         }
 
         /// <summary>
@@ -106,7 +119,10 @@ namespace GandaVisit
                 ISpot geselecteerd = (ISpot)box.SelectedItem;
          
                 //ophalen details
+                prSearch.Visibility = Visibility.Collapsed;
+                prSearch.IsActive = true;
                 await dao.AddDetails(geselecteerd);
+                prSearch.Visibility = Visibility.Collapsed;
                 Frame.Navigate(typeof(Detail), geselecteerd);
             }
 
@@ -118,6 +134,6 @@ namespace GandaVisit
             Frame.Navigate(typeof(About));
         }
 
-
+       
     }
 }
