@@ -25,7 +25,7 @@
 
     <Grid>
         <Pivot x:Name="DetailsPivot" Title="Pivot">
-            <PivotItem Header="Menu">
+            <PivotItem Header="Info">
                 <Grid>
                     <Image x:Name="ImgDetail" HorizontalAlignment="Center" Height="121" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Source="Assets/Logo.png" Stretch="Fill"/>
                     <Button x:ConnectionId='6' x:Name="BtnAddVisit" Content="Toevoegen" HorizontalAlignment="Left" Height="55" Margin="68,363,0,0" VerticalAlignment="Top" Width="207"                          />
@@ -59,13 +59,13 @@
 
                         <Grid x:Name="gWebsite" Height="100">
                             <TextBlock x:Name="txtContactWebsite" TextWrapping="Wrap" Text="Website" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="116" FontSize="30"/>
-                            <TextBlock x:ConnectionId='4' x:Name="txtWebsite" TextWrapping="Wrap" Text="Website" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,47,0,-30"                         />
+                            <TextBlock x:ConnectionId='4' x:Name="txtWebsite" Text="Website" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="342" FontSize="24" Margin="10,47,0,0"                         />
 
                         </Grid>
 
                         <Grid x:Name="gEmail" Height="100">
                             <TextBlock x:Name="txtContactEmail" TextWrapping="Wrap" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30" Margin="0,0,0,0"/>
-                            <TextBlock x:ConnectionId='3' x:Name="txtEmail" TextWrapping="WrapWholeWords" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Width="324" FontSize="24" Margin="10,47,0,0"                       />
+                            <TextBlock x:ConnectionId='3' x:Name="txtEmail" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Width="324" FontSize="24" Margin="10,47,0,0"                       />
 
                         </Grid>
                     </StackPanel>

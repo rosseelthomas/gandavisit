@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="22157AlexDhaenens.SeeingGhent" Publisher="CN=6F9177DF-56E5-4A8D-BD3A-F609D95388E8" Version="1.1.0.1" ProcessorArchitecture="neutral" />
+  <Identity Name="22157AlexDhaenens.SeeingGhent" Publisher="CN=6F9177DF-56E5-4A8D-BD3A-F609D95388E8" Version="1.2.0.1" ProcessorArchitecture="neutral" />
   <mp:PhoneIdentity PhoneProductId="9c1199c7-d40d-4ffe-be69-6798b42c9872" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Seeing Ghent</DisplayName>

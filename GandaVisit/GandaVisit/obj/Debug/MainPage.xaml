@@ -43,7 +43,7 @@
                     </StackPanel>
                     <ProgressRing x:Name="prSearch" Margin="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
                     <Grid>
-                        <TextBlock x:Name="txtNotFound" Text="No results Found" HorizontalAlignment="Center" FontSize="24" Visibility="Collapsed"/>
+                        <TextBlock x:Name="txtNotFound" Text="Geen resultaten gevonden" HorizontalAlignment="Center" FontSize="24" Visibility="Collapsed"/>
                     </Grid>
 
 
