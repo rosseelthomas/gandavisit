@@ -15,7 +15,7 @@
                     <SymbolIcon Symbol="Map"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:ConnectionId='2' x:Name="BtnClear" Label="Clear"                       >
+            <AppBarButton x:ConnectionId='2' x:Name="BtnClear" Label="Reset kaart"                       >
                 <AppBarButton.Icon>
                     <SymbolIcon Symbol="Clear"/>
                 </AppBarButton.Icon>
@@ -28,11 +28,11 @@
             <PivotItem Header="Menu">
                 <Grid>
                     <Image x:Name="ImgDetail" HorizontalAlignment="Center" Height="121" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Source="Assets/Logo.png" Stretch="Fill"/>
-                    <Button x:ConnectionId='6' x:Name="BtnAddVisit" Content="Add to visits" HorizontalAlignment="Left" Height="55" Margin="68,363,0,0" VerticalAlignment="Top" Width="207"                          />
+                    <Button x:ConnectionId='6' x:Name="BtnAddVisit" Content="Toevoegen" HorizontalAlignment="Left" Height="55" Margin="68,363,0,0" VerticalAlignment="Top" Width="207"                          />
                     <TextBlock x:Name="txtSummuray" HorizontalAlignment="Left" Height="191" Margin="10,164,0,0" TextWrapping="Wrap" Text="Summuray" VerticalAlignment="Top" Width="342" FontSize="24" TextAlignment="Center"/>
                 </Grid>
             </PivotItem>
-            <PivotItem Header="Description">
+            <PivotItem Header="Beschrijving">
                 <ScrollViewer VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Margin="0,0,0,10">
                     <TextBlock x:Name="TxtDiscription" Margin="0" TextWrapping="Wrap" Text="TextBlock" FontSize="24" IsTextSelectionEnabled="True" IsHitTestVisible="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
                 </ScrollViewer>
@@ -42,13 +42,13 @@
                 <ScrollViewer VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Margin="0">
                     <StackPanel ScrollViewer.HorizontalScrollBarVisibility="Visible">
                         <Grid x:Name="gAdres">
-                            <TextBlock x:Name="txtAdress" TextWrapping="Wrap" Text="Adress" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30"/>
+                            <TextBlock x:Name="txtAdress" TextWrapping="Wrap" Text="Adres" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30"/>
                             <TextBlock x:Name="txtStreet" TextWrapping="Wrap" Text="Street" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,47,0,0"/>
                             <TextBlock x:Name="txtCity" TextWrapping="Wrap" Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,77,0,0"/>
 
                         </Grid>
                         <Grid x:Name="gPhone" Height="100">
-                            <TextBlock x:Name="txtContactPhone" TextWrapping="Wrap" Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30" Margin="0,10,0,0"/>
+                            <TextBlock x:Name="txtContactPhone" TextWrapping="Wrap" Text="Telefoon" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="137" FontSize="30" Margin="0,10,0,0"/>
                             <TextBlock x:ConnectionId='5' x:Name="txtPhone" TextWrapping="Wrap" Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,57,0,0"                       />
 
                         </Grid>
@@ -72,7 +72,7 @@
                 </ScrollViewer>
 
             </PivotItem>
-            <PivotItem Header="Location">
+            <PivotItem Header="Kaart">
                 <Maps:MapControl x:Name="MapControlLocation" Margin="0,0,0,10" MapServiceToken="moVpr8NBlYQrrNrvqKSfGQ"/>
             </PivotItem>
 

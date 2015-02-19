@@ -72,3 +72,9 @@ C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\About.g.c
 C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\About.xaml
 C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\obj\Debug\About.xbf
 C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\About.xbf
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\Microsoft.Advertising.Mobile.Common.winmd
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\Microsoft.Advertising.Mobile.Common.xml
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\Microsoft.Advertising.Mobile.Display.winmd
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\Microsoft.Advertising.Mobile.Display.xml
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\Microsoft.Advertising.Mobile.UI.winmd
+C:\Users\UGent\Source\Repos\gandavisit\GandaVisit\GandaVisit\bin\Debug\Microsoft.Advertising.Mobile.UI.xml

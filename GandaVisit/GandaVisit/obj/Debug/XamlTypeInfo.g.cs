@@ -59,6 +59,18 @@ namespace GandaVisit.GandaVisit_XamlTypeInfo
             {
                 xamlType = CreateXamlType(typeIndex);
             }
+            var userXamlType = xamlType as global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType;
+            if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+            {
+                global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForType(type);
+                if (libXamlType != null)
+                {
+                    if(libXamlType.IsConstructible || xamlType == null)
+                    {
+                        xamlType = libXamlType;
+                    }
+                }
+            }
             if (xamlType != null)
             {
                 _xamlTypeCacheByName.Add(xamlType.FullName, xamlType);
@@ -82,6 +94,18 @@ namespace GandaVisit.GandaVisit_XamlTypeInfo
             if(typeIndex != -1)
             {
                 xamlType = CreateXamlType(typeIndex);
+            }
+            var userXamlType = xamlType as global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType;
+            if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+            {
+                global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForName(typeName);
+                if (libXamlType != null)
+                {
+                    if(libXamlType.IsConstructible || xamlType == null)
+                    {
+                        xamlType = libXamlType;
+                    }
+                }
             }
             if (xamlType != null)
             {
@@ -124,19 +148,31 @@ namespace GandaVisit.GandaVisit_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[5];
+            _typeNameTable = new string[11];
             _typeNameTable[0] = "GandaVisit.About";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "GandaVisit.Detail";
-            _typeNameTable[4] = "GandaVisit.MainPage";
+            _typeNameTable[4] = "Microsoft.Advertising.Mobile.UI.AdControl";
+            _typeNameTable[5] = "Windows.UI.Xaml.Controls.Control";
+            _typeNameTable[6] = "Int32";
+            _typeNameTable[7] = "String";
+            _typeNameTable[8] = "Boolean";
+            _typeNameTable[9] = "Double";
+            _typeNameTable[10] = "GandaVisit.MainPage";
 
-            _typeTable = new global::System.Type[5];
+            _typeTable = new global::System.Type[11];
             _typeTable[0] = typeof(global::GandaVisit.About);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::GandaVisit.Detail);
-            _typeTable[4] = typeof(global::GandaVisit.MainPage);
+            _typeTable[4] = typeof(global::Microsoft.Advertising.Mobile.UI.AdControl);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.Control);
+            _typeTable[6] = typeof(global::System.Int32);
+            _typeTable[7] = typeof(global::System.String);
+            _typeTable[8] = typeof(global::System.Boolean);
+            _typeTable[9] = typeof(global::System.Double);
+            _typeTable[10] = typeof(global::GandaVisit.MainPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -173,7 +209,8 @@ namespace GandaVisit.GandaVisit_XamlTypeInfo
 
         private object Activate_0_About() { return new global::GandaVisit.About(); }
         private object Activate_3_Detail() { return new global::GandaVisit.Detail(); }
-        private object Activate_4_MainPage() { return new global::GandaVisit.MainPage(); }
+        private object Activate_4_AdControl() { return new global::Microsoft.Advertising.Mobile.UI.AdControl(); }
+        private object Activate_10_MainPage() { return new global::GandaVisit.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -207,9 +244,49 @@ namespace GandaVisit.GandaVisit_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 4:   //  GandaVisit.MainPage
+            case 4:   //  Microsoft.Advertising.Mobile.UI.AdControl
+                userType = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
+                userType.Activator = Activate_4_AdControl;
+                userType.AddMemberName("AutoRefreshIntervalInSeconds");
+                userType.AddMemberName("ApplicationId");
+                userType.AddMemberName("AdUnitId");
+                userType.AddMemberName("IsAutoRefreshEnabled");
+                userType.AddMemberName("Keywords");
+                userType.AddMemberName("Latitude");
+                userType.AddMemberName("Longitude");
+                userType.AddMemberName("CountryOrRegion");
+                userType.AddMemberName("PostalCode");
+                userType.AddMemberName("IsAutoCollapseEnabled");
+                userType.AddMemberName("IsEngaged");
+                userType.AddMemberName("IsSuspended");
+                userType.AddMemberName("HasAd");
+                userType.AddMemberName("IsBackgroundTransparent");
+                xamlType = userType;
+                break;
+
+            case 5:   //  Windows.UI.Xaml.Controls.Control
+                xamlType = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 6:   //  Int32
+                xamlType = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  String
+                xamlType = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  Boolean
+                xamlType = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 9:   //  Double
+                xamlType = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 10:   //  GandaVisit.MainPage
                 userType = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_MainPage;
+                userType.Activator = Activate_10_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -217,12 +294,289 @@ namespace GandaVisit.GandaVisit_XamlTypeInfo
             return xamlType;
         }
 
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> _otherProviders;
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> OtherProviders
+        {
+            get
+            {
+                if(_otherProviders == null)
+                {
+                    _otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
+                    global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::Microsoft.Advertising.Mobile.UI.UI_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    _otherProviders.Add(provider); 
+                }
+                return _otherProviders;
+            }
+        }
 
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForName(string typeName)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(typeName);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForType(global::System.Type type)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(type);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private object get_0_AdControl_AutoRefreshIntervalInSeconds(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.AutoRefreshIntervalInSeconds;
+        }
+        private void set_0_AdControl_AutoRefreshIntervalInSeconds(object instance, object Value)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            that.AutoRefreshIntervalInSeconds = (global::System.Int32)Value;
+        }
+        private object get_1_AdControl_ApplicationId(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.ApplicationId;
+        }
+        private void set_1_AdControl_ApplicationId(object instance, object Value)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            that.ApplicationId = (global::System.String)Value;
+        }
+        private object get_2_AdControl_AdUnitId(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.AdUnitId;
+        }
+        private void set_2_AdControl_AdUnitId(object instance, object Value)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            that.AdUnitId = (global::System.String)Value;
+        }
+        private object get_3_AdControl_IsAutoRefreshEnabled(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.IsAutoRefreshEnabled;
+        }
+        private void set_3_AdControl_IsAutoRefreshEnabled(object instance, object Value)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            that.IsAutoRefreshEnabled = (global::System.Boolean)Value;
+        }
+        private object get_4_AdControl_Keywords(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.Keywords;
+        }
+        private void set_4_AdControl_Keywords(object instance, object Value)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            that.Keywords = (global::System.String)Value;
+        }
+        private object get_5_AdControl_Latitude(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.Latitude;
+        }
+        private void set_5_AdControl_Latitude(object instance, object Value)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            that.Latitude = (global::System.Double)Value;
+        }
+        private object get_6_AdControl_Longitude(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.Longitude;
+        }
+        private void set_6_AdControl_Longitude(object instance, object Value)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            that.Longitude = (global::System.Double)Value;
+        }
+        private object get_7_AdControl_CountryOrRegion(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.CountryOrRegion;
+        }
+        private void set_7_AdControl_CountryOrRegion(object instance, object Value)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            that.CountryOrRegion = (global::System.String)Value;
+        }
+        private object get_8_AdControl_PostalCode(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.PostalCode;
+        }
+        private void set_8_AdControl_PostalCode(object instance, object Value)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            that.PostalCode = (global::System.String)Value;
+        }
+        private object get_9_AdControl_IsAutoCollapseEnabled(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.IsAutoCollapseEnabled;
+        }
+        private void set_9_AdControl_IsAutoCollapseEnabled(object instance, object Value)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            that.IsAutoCollapseEnabled = (global::System.Boolean)Value;
+        }
+        private object get_10_AdControl_IsEngaged(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.IsEngaged;
+        }
+        private object get_11_AdControl_IsSuspended(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.IsSuspended;
+        }
+        private object get_12_AdControl_HasAd(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.HasAd;
+        }
+        private object get_13_AdControl_IsBackgroundTransparent(object instance)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            return that.IsBackgroundTransparent;
+        }
+        private void set_13_AdControl_IsBackgroundTransparent(object instance, object Value)
+        {
+            var that = (global::Microsoft.Advertising.Mobile.UI.AdControl)instance;
+            that.IsBackgroundTransparent = (global::System.Boolean)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "Microsoft.Advertising.Mobile.UI.AdControl.AutoRefreshIntervalInSeconds":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "AutoRefreshIntervalInSeconds", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_0_AdControl_AutoRefreshIntervalInSeconds;
+                xamlMember.Setter = set_0_AdControl_AutoRefreshIntervalInSeconds;
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.ApplicationId":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "ApplicationId", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_1_AdControl_ApplicationId;
+                xamlMember.Setter = set_1_AdControl_ApplicationId;
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.AdUnitId":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "AdUnitId", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_2_AdControl_AdUnitId;
+                xamlMember.Setter = set_2_AdControl_AdUnitId;
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.IsAutoRefreshEnabled":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "IsAutoRefreshEnabled", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_3_AdControl_IsAutoRefreshEnabled;
+                xamlMember.Setter = set_3_AdControl_IsAutoRefreshEnabled;
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.Keywords":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "Keywords", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_4_AdControl_Keywords;
+                xamlMember.Setter = set_4_AdControl_Keywords;
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.Latitude":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "Latitude", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_5_AdControl_Latitude;
+                xamlMember.Setter = set_5_AdControl_Latitude;
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.Longitude":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "Longitude", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_6_AdControl_Longitude;
+                xamlMember.Setter = set_6_AdControl_Longitude;
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.CountryOrRegion":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "CountryOrRegion", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_7_AdControl_CountryOrRegion;
+                xamlMember.Setter = set_7_AdControl_CountryOrRegion;
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.PostalCode":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "PostalCode", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_8_AdControl_PostalCode;
+                xamlMember.Setter = set_8_AdControl_PostalCode;
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.IsAutoCollapseEnabled":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "IsAutoCollapseEnabled", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_9_AdControl_IsAutoCollapseEnabled;
+                xamlMember.Setter = set_9_AdControl_IsAutoCollapseEnabled;
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.IsEngaged":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "IsEngaged", "Boolean");
+                xamlMember.Getter = get_10_AdControl_IsEngaged;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.IsSuspended":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "IsSuspended", "Boolean");
+                xamlMember.Getter = get_11_AdControl_IsSuspended;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.HasAd":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "HasAd", "Boolean");
+                xamlMember.Getter = get_12_AdControl_HasAd;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.Advertising.Mobile.UI.AdControl.IsBackgroundTransparent":
+                userType = (global::GandaVisit.GandaVisit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Advertising.Mobile.UI.AdControl");
+                xamlMember = new global::GandaVisit.GandaVisit_XamlTypeInfo.XamlMember(this, "IsBackgroundTransparent", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_13_AdControl_IsBackgroundTransparent;
+                xamlMember.Setter = set_13_AdControl_IsBackgroundTransparent;
+                break;
+            }
             return xamlMember;
         }
     }

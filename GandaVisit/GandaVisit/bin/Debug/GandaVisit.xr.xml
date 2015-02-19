@@ -90,6 +90,16 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="GandaVisit.Detail" />
+    <RootType FullName="Microsoft.Advertising.Mobile.UI.AdControl">
+      <RootProperty Name="AutoRefreshIntervalInSeconds" />
+      <RootProperty Name="ApplicationId" />
+      <RootProperty Name="AdUnitId" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="IsAutoRefreshEnabled" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalContentAlignment" />

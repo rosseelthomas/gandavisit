@@ -218,11 +218,11 @@ namespace GandaVisit
             //instellen van de AddVisistsButton
             if (current_spot.IsVisists)
             {
-                BtnAddVisit.Content = "Remove from visits";
+                BtnAddVisit.Content = "Verwijderen";
             }
             else
             {
-                BtnAddVisit.Content = "Add to visists";
+                BtnAddVisit.Content = "Toevoegen";
             }
         }
 
@@ -295,9 +295,9 @@ namespace GandaVisit
         private async void ErrorMap()
         {
             //message tonen
-            MessageDialog d = new MessageDialog("An error occured: Is location/internet on?");
-            d.Commands.Add(new UICommand("Try again", new UICommandInvokedHandler(this.MessageTryAgain)));
-            d.Commands.Add(new UICommand("Cancel", new UICommandInvokedHandler(this.MessageCancel)));
+            MessageDialog d = new MessageDialog("Er is een fout opgetreden: ligt het internet of de locatie service aan? ");
+            d.Commands.Add(new UICommand("Opnieuw", new UICommandInvokedHandler(this.MessageTryAgain)));
+            d.Commands.Add(new UICommand("Annuleer", new UICommandInvokedHandler(this.MessageCancel)));
             await d.ShowAsync();
         }
 
