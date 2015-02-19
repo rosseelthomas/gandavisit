@@ -25,9 +25,17 @@ namespace GandaVisit
 
             var response = await httpClient.GetAsync(new Uri(string.Format(Constants.zoek, value)));
 
-            string json = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception();
+            }
+            else
+            {
+               string json = await response.Content.ReadAsStringAsync();
 
             return parseIdNaam(json);
+            }
+            
 
         }
 
@@ -38,9 +46,18 @@ namespace GandaVisit
             {
                 var response = await httpClient.GetAsync(new Uri(string.Format(Constants.details, spot.Id)));
 
-                string json = await response.Content.ReadAsStringAsync();
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception();
+                }
+                else
+                {
+                    string json = await response.Content.ReadAsStringAsync();
 
-                parseDetails(json, spot);
+                    parseDetails(json, spot);
+                }
+
+                
             }
 
         }

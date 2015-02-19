@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,7 +23,7 @@ namespace GandaVisit
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
+        private delegate void errormeth(IUICommand c);
         ISpotDAO dao;
         bool first_load = true;
         public MainPage()
@@ -44,12 +45,25 @@ namespace GandaVisit
             {
                 prVisits.Visibility = Visibility.Visible;
                 prVisits.IsActive = true;
-                await dao.LoadVisits();
-                prVisits.IsActive = false;
-                prVisits.Visibility = Visibility.Collapsed;
-                lblVisits.ItemsSource = null;
-                lblVisits.ItemsSource = dao.Visits;
-                first_load = false;
+                try
+                {
+                    await dao.LoadVisits();
+                    prVisits.IsActive = false;
+                    prVisits.Visibility = Visibility.Collapsed;
+                    lblVisits.ItemsSource = null;
+                    lblVisits.ItemsSource = dao.Visits;
+                    first_load = false;
+                }
+                catch (Exception ex)
+                {
+                    prVisits.IsActive = false;
+                    prVisits.Visibility = Visibility.Collapsed;
+                    lblVisits.ItemsSource = null;
+
+                    ErrorInternet(MessageTryAgain_Loaded);
+                }
+
+                
             }
 
         }
@@ -83,25 +97,39 @@ namespace GandaVisit
 
         private async void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            List<ISpot> lijst = new List<ISpot>();
             txtNotFound.Visibility = Visibility.Collapsed;
             lbResults.Visibility = Visibility.Collapsed;
             prSearch.Visibility = Visibility.Visible;
             prSearch.IsActive = true;
-            List<ISpot> lijst = await dao.SearchName(txtSearch.Text);
-            prSearch.IsActive = false;
-            prSearch.Visibility = Visibility.Collapsed;
-            lbResults.ItemsSource = lijst;
+            try
+            {
+                lijst = await dao.SearchName(txtSearch.Text);
 
-            if (lijst.Count == 0)
-            {
-                txtNotFound.Visibility = Visibility.Visible;
-                lbResults.Visibility = Visibility.Collapsed;
+                prSearch.IsActive = false;
+                prSearch.Visibility = Visibility.Collapsed;
+                lbResults.ItemsSource = lijst;
+
+                if (lijst.Count == 0)
+                {
+                    txtNotFound.Visibility = Visibility.Visible;
+                    lbResults.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    txtNotFound.Visibility = Visibility.Collapsed;
+                    lbResults.Visibility = Visibility.Visible;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                txtNotFound.Visibility = Visibility.Collapsed;
-                lbResults.Visibility = Visibility.Visible;
+                prSearch.IsActive = false;
+                prSearch.Visibility = Visibility.Collapsed;
+                lbResults.ItemsSource = lijst;
+
+                ErrorInternet(MessageTryAgain_Zoek);
             }
+            
 
         }
 
@@ -127,11 +155,24 @@ namespace GandaVisit
                 btnSearch.Visibility = Visibility.Collapsed;
                 prDetails.Visibility = Visibility.Visible;
                 prDetails.IsActive = true;
-                await dao.AddDetails(geselecteerd);
-                prDetails.IsActive = false;
-                prDetails.Visibility = Visibility.Collapsed;
-                btnSearch.Visibility = Visibility.Visible;
-                Frame.Navigate(typeof(Detail), geselecteerd);
+                try
+                {
+                    await dao.AddDetails(geselecteerd);
+                    prDetails.IsActive = false;
+                    prDetails.Visibility = Visibility.Collapsed;
+                    btnSearch.Visibility = Visibility.Visible;
+                    Frame.Navigate(typeof(Detail), geselecteerd);
+                }
+                catch (Exception ex)
+                {
+                    prDetails.IsActive = false;
+                    prDetails.Visibility = Visibility.Collapsed;
+                    btnSearch.Visibility = Visibility.Visible;
+
+                    ErrorInternet();
+                }
+                
+
             }
 
 
@@ -149,6 +190,37 @@ namespace GandaVisit
             lblVisits.ItemsSource = dao.Visits;
         }
 
+        private async void ErrorInternet(errormeth m)
+        {
+            //message tonen
+            MessageDialog d = new MessageDialog("Er is een fout opgetreden: ben je verbonden met het internet? ");
+            d.Commands.Add(new UICommand("Opnieuw", new UICommandInvokedHandler(m)));
+            d.Commands.Add(new UICommand("Annuleer", new UICommandInvokedHandler(this.MessageCancel)));
+            await d.ShowAsync();
+        }
+
+        private async void ErrorInternet()
+        {
+            //message tonen
+            MessageDialog d = new MessageDialog("Er is een fout opgetreden: ben je verbonden met het internet? ");
+            d.Commands.Add(new UICommand("Annuleer", new UICommandInvokedHandler(this.MessageCancel)));
+            await d.ShowAsync();
+        }
+
+        private void MessageTryAgain_Loaded(IUICommand command)
+        {
+            MainPage_Loaded(this, null);
+        }
+
+        private void MessageTryAgain_Zoek(IUICommand command)
+        {
+            btnSearch_Click(this, null);
+        }
+
+       private void MessageCancel(IUICommand command)
+        {
+            //do nothing
+        }
 
     }
 }
