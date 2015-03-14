@@ -10,12 +10,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.BottomAppBar>
         <CommandBar ClosedDisplayMode="Minimal">
-            <AppBarButton x:ConnectionId='1' x:Name="btnRoute" Label="Route"                       >
+            <AppBarButton x:ConnectionId='1' x:Name="btnRoute" x:Uid="btnRoute" Label="Route"                       >
                 <AppBarButton.Icon>
                     <SymbolIcon Symbol="Map"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:ConnectionId='2' x:Name="BtnClear" Label="Reset kaart"                       >
+            <AppBarButton x:ConnectionId='2' x:Name="BtnClear" x:Uid="BtnClear" Label="Reset kaart"                       >
                 <AppBarButton.Icon>
                     <SymbolIcon Symbol="Clear"/>
                 </AppBarButton.Icon>
@@ -25,55 +25,55 @@
 
     <Grid>
         <Pivot x:Name="DetailsPivot" Title="Pivot">
-            <PivotItem Header="Info">
+            <PivotItem x:Name="pInfo" x:Uid="pInfo" Header="Info">
                 <Grid>
                     <Image x:Name="ImgDetail" HorizontalAlignment="Center" Height="121" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Source="Assets/Logo.png" Stretch="Fill"/>
-                    <Button x:ConnectionId='6' x:Name="BtnAddVisit" Content="Toevoegen" HorizontalAlignment="Left" Height="55" Margin="68,363,0,0" VerticalAlignment="Top" Width="207"                          />
+                    <Button x:ConnectionId='6' x:Name="BtnAddVisit" x:Uid="BtnAddVisit" Content="Toevoegen" HorizontalAlignment="Left" Height="55" Margin="68,363,0,0" VerticalAlignment="Top" Width="207"                          />
                     <TextBlock x:Name="txtSummuray" HorizontalAlignment="Left" Height="191" Margin="10,164,0,0" TextWrapping="Wrap" Text="Summuray" VerticalAlignment="Top" Width="342" FontSize="24" TextAlignment="Center"/>
                 </Grid>
             </PivotItem>
-            <PivotItem Header="Beschrijving">
+            <PivotItem x:Name="pBeschrijving" x:Uid="pBeschrijving" Header="Beschrijving">
                 <ScrollViewer VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Margin="0,0,0,10">
                     <TextBlock x:Name="TxtDiscription" Margin="0" TextWrapping="Wrap" Text="TextBlock" FontSize="24" IsTextSelectionEnabled="True" IsHitTestVisible="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
                 </ScrollViewer>
 
             </PivotItem>
-            <PivotItem Header="Contact">
+            <PivotItem x:Name="pContact" x:Uid="pContact" Header="Contact">
                 <ScrollViewer VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Margin="0">
                     <StackPanel ScrollViewer.HorizontalScrollBarVisibility="Visible">
                         <Grid x:Name="gAdres">
-                            <TextBlock x:Name="txtAdress" TextWrapping="Wrap" Text="Adres" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30"/>
+                            <TextBlock x:Name="txtAdress" x:Uid="txtAdress" TextWrapping="Wrap" Text="Adres" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30"/>
                             <TextBlock x:Name="txtStreet" TextWrapping="Wrap" Text="Street" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,47,0,0"/>
                             <TextBlock x:Name="txtCity" TextWrapping="Wrap" Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,77,0,0"/>
 
                         </Grid>
                         <Grid x:Name="gPhone" Height="100">
-                            <TextBlock x:Name="txtContactPhone" TextWrapping="Wrap" Text="Telefoon" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="137" FontSize="30" Margin="0,10,0,0"/>
+                            <TextBlock x:Name="txtContactPhone" x:Uid="txtContactPhone" TextWrapping="Wrap" Text="Telefoon" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="137" FontSize="30" Margin="0,10,0,0"/>
                             <TextBlock x:ConnectionId='5' x:Name="txtPhone" TextWrapping="Wrap" Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,57,0,0"                       />
 
                         </Grid>
                         <Grid x:Name="gFax" Height="100">
-                            <TextBlock x:Name="txtContactFax" TextWrapping="Wrap" Text="Fax" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30"/>
+                            <TextBlock x:Name="txtContactFax" x:Uid="txtContactFax" TextWrapping="Wrap" Text="Fax" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30"/>
                             <TextBlock x:Name="txtFax" TextWrapping="Wrap" Text="Fax" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="324" FontSize="24" Margin="10,47,0,0"/>
                         </Grid>
 
                         <Grid x:Name="gWebsite" Height="100">
-                            <TextBlock x:Name="txtContactWebsite" TextWrapping="Wrap" Text="Website" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="116" FontSize="30"/>
-                            <TextBlock x:ConnectionId='4' x:Name="txtWebsite" Text="Website" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="342" FontSize="24" Margin="10,47,0,0"                         />
+                            <TextBlock x:Name="txtContactWebsite" x:Uid="txtContactWebsite" TextWrapping="Wrap" Text="Website" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="116" FontSize="30"/>
+                            <TextBlock x:ConnectionId='4' x:Name="txtWebsite" Text="Website" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="342" FontSize="24" Margin="10,47,0,0"                          TextWrapping="Wrap"/>
 
                         </Grid>
 
                         <Grid x:Name="gEmail" Height="100">
-                            <TextBlock x:Name="txtContactEmail" TextWrapping="Wrap" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30" Margin="0,0,0,0"/>
-                            <TextBlock x:ConnectionId='3' x:Name="txtEmail" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Width="324" FontSize="24" Margin="10,47,0,0"                       />
+                            <TextBlock x:Name="txtContactEmail" x:Uid="txtContactEmail" TextWrapping="Wrap" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="104" FontSize="30" Margin="0,0,0,0"/>
+                            <TextBlock x:ConnectionId='3' x:Name="txtEmail" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Width="324" FontSize="24" Margin="10,47,0,0"                        TextWrapping="Wrap"/>
 
                         </Grid>
                     </StackPanel>
                 </ScrollViewer>
 
             </PivotItem>
-            <PivotItem Header="Kaart">
-                <Maps:MapControl x:Name="MapControlLocation" Margin="0,0,0,10" MapServiceToken="moVpr8NBlYQrrNrvqKSfGQ"/>
+            <PivotItem x:Name="pKaart" x:Uid="pKaart" Header="Kaart">
+                <Maps:MapControl x:Name="MapControlLocation" Margin="0,0,0,10" MapServiceToken="Pv8NJE-SS5PeyGDdsNkbew"/>
             </PivotItem>
 
         </Pivot>

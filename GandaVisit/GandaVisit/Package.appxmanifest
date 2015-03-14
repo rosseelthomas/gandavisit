@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="22157AlexDhaenens.SeeingGhent" Publisher="CN=6F9177DF-56E5-4A8D-BD3A-F609D95388E8" Version="1.2.0.1" />
-  <mp:PhoneIdentity PhoneProductId="9c1199c7-d40d-4ffe-be69-6798b42c9872" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="22157AlexDhaenens.8487E2DB2D42" Publisher="CN=6F9177DF-56E5-4A8D-BD3A-F609D95388E8" Version="1.1.0.1" />
+  <mp:PhoneIdentity PhoneProductId="b0664a45-8e6a-4d46-bd42-8325c7b1ebd7" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Seeing Ghent</DisplayName>
     <PublisherDisplayName>Alex Dhaenens</PublisherDisplayName>

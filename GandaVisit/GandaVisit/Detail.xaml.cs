@@ -22,6 +22,7 @@ using Windows.UI.Xaml.Controls.Maps;
 using Windows.Storage.Streams;
 using Windows.UI.Popups;
 using Windows.Services.Maps;
+using Windows.ApplicationModel.Resources;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -34,11 +35,12 @@ namespace GandaVisit
     {
         ISpot current_spot;
         ISpotDAO dao;
+        ResourceLoader loader;
         public Detail()
         {
             this.InitializeComponent();
             HardwareButtons.BackPressed += OnBackPressed;
-
+            loader= new Windows.ApplicationModel.Resources.ResourceLoader();
             dao = (ISpotDAO)App.Current.Resources["dao"];
 
         }
@@ -218,11 +220,11 @@ namespace GandaVisit
             //instellen van de AddVisistsButton
             if (current_spot.IsVisists)
             {
-                BtnAddVisit.Content = "Verwijderen";
+                BtnAddVisit.Content = loader.GetString("Verwijderen");
             }
             else
             {
-                BtnAddVisit.Content = "Toevoegen";
+                BtnAddVisit.Content = loader.GetString("Toevoegen");
             }
         }
 
@@ -295,9 +297,9 @@ namespace GandaVisit
         private async void ErrorMap()
         {
             //message tonen
-            MessageDialog d = new MessageDialog("Er is een fout opgetreden: ligt het internet of de locatie service aan? ");
-            d.Commands.Add(new UICommand("Opnieuw", new UICommandInvokedHandler(this.MessageTryAgain)));
-            d.Commands.Add(new UICommand("Annuleer", new UICommandInvokedHandler(this.MessageCancel)));
+            MessageDialog d = new MessageDialog(loader.GetString("ErrorLocatieInternet"));
+            d.Commands.Add(new UICommand(loader.GetString("Opnieuw"), new UICommandInvokedHandler(this.MessageTryAgain)));
+            d.Commands.Add(new UICommand(loader.GetString("Annuleer"), new UICommandInvokedHandler(this.MessageCancel)));
             await d.ShowAsync();
         }
 

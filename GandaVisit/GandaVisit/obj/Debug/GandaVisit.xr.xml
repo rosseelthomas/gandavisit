@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
+  <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="ActualHeight" />
+  </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
@@ -16,6 +19,7 @@
       <RootProperty Name="Title" />
       <RootProperty Name="Items" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Height" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PivotItem">
       <RootProperty Name="Header" />
@@ -100,6 +104,10 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Width" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="ElementName" />
+      <RootProperty Name="Mode" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalContentAlignment" />
@@ -127,6 +135,11 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="AcceptsReturn" />
+      <RootProperty Name="IsSpellCheckEnabled" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="GandaVisit.MainPage" />

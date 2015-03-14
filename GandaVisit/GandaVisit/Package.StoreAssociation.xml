@@ -184,17 +184,13 @@
     <Language Code="vi-vn" InMinimumRequirementSet="true" />
   </SupportedLocales>
   <ProductReservedInfo>
-    <MainPackageIdentityName>22157AlexDhaenens.SeeingGhent</MainPackageIdentityName>
+    <MainPackageIdentityName>22157AlexDhaenens.8487E2DB2D42</MainPackageIdentityName>
     <ReservedNames>
       <ReservedName>Seeing Ghent</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
-  <AccountPackageIdentityNames />
-  <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=fa3b6add-5f4b-4852-9b91-5bf2fc32688b">
-    <PackageInfo>
-      <OsMinVersion>6.3.0.0</OsMinVersion>
-      <PackageArchitecture>neutral</PackageArchitecture>
-      <PackageMaxArchitectureVersion>1.1.0.1</PackageMaxArchitectureVersion>
-    </PackageInfo>
-  </PackageInfoList>
+  <AccountPackageIdentityNames>
+    <MainPackageIdentityName>22157AlexDhaenens.SeeingGhent</MainPackageIdentityName>
+  </AccountPackageIdentityNames>
+  <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=0b6e6fad-a0b5-4254-afa7-4945a45e6dbb" />
 </StoreAssociation>

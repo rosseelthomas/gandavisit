@@ -1,0 +1,68 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GandaVisit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:UI="using:Microsoft.Advertising.Mobile.UI"
+    x:Class="GandaVisit.MainPage"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.BottomAppBar>
+        <CommandBar ClosedDisplayMode="Minimal">
+            <AppBarButton x:ConnectionId='1' x:Name="btnClearVisits" Icon="Clear" Label="Clear visits"                             />
+        </CommandBar>
+    </Page.BottomAppBar>
+
+
+    <StackPanel>
+        <UI:AdControl AutoRefreshIntervalInSeconds="60" ApplicationId="953da765-ec92-49eb-ac7e-be33dc2e604e" AdUnitId="11316317" HorizontalAlignment="Center" Height="50" IsAutoRefreshEnabled="True" Margin="10,0,0,0" Width="300"/>
+        <Pivot x:Name="pivotMain" Title="Seeing Ghent" Margin="-10,0,10,0">
+            <PivotItem x:Name="Menu" Header="Menu">
+                <Grid>
+                    <TextBlock x:ConnectionId='5' x:Name="TxtMyVisits" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="Mijn bezoeken" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="49" Width="342" FontSize="36"                  />
+                    <TextBlock x:ConnectionId='6' x:Name="TxtSearch" HorizontalAlignment="Left" Margin="10,64,0,0" TextWrapping="Wrap" Text="Zoek" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="47" Width="342" FontSize="36"                   />
+                    <TextBlock x:ConnectionId='7' x:Name="TxtAbout" HorizontalAlignment="Left" Margin="10,111,0,0" TextWrapping="Wrap" Text="Over" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="47" Width="342" FontSize="36"                  />
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Mijn bezoeken">
+                <StackPanel Margin="0,0,0,10">
+                    <ProgressRing x:Name="prVisits" Margin="0"/>
+
+                    <ListBox x:ConnectionId='4' x:Name="lblVisits" Margin="0,0,0,0" BorderBrush="{x:Null}" FontSize="36"                              DisplayMemberPath="Naam" Background="{x:Null}" Foreground="{ThemeResource ButtonForegroundThemeBrush}"/>
+
+
+                </StackPanel>
+            </PivotItem>
+            <PivotItem Header="Zoek" Margin="10,0,0,0">
+                <StackPanel Margin="10,0,0,0">
+                    <StackPanel Height="60" Orientation="Horizontal" >
+                        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+                        <Button x:ConnectionId='3' x:Name="btnSearch" Content="Zoek" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"                         Width="50"/>
+                        <ProgressRing x:Name="prDetails" Height="50" Margin="10,0,0,0" VerticalAlignment="Top" Width="50" IsActive="False" Visibility="Collapsed" />
+                    </StackPanel>
+                    <ProgressRing x:Name="prSearch" Margin="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                    <Grid>
+                        <TextBlock x:Name="txtNotFound" Text="Geen resultaten gevonden" HorizontalAlignment="Center" FontSize="24" Visibility="Collapsed"/>
+                    </Grid>
+
+
+
+                    <Grid Height="468">
+                        <ListBox x:ConnectionId='2' x:Name="lbResults" Margin="0,0,0,10" BorderBrush="{x:Null}" FontSize="36"                              DisplayMemberPath="Naam" Background="{x:Null}" Foreground="{ThemeResource ButtonForegroundThemeBrush}" Visibility="Collapsed"/>
+                    </Grid>
+
+
+
+                </StackPanel>
+
+
+            </PivotItem>
+
+        </Pivot>
+
+
+
+    </StackPanel>
+</Page>
+
