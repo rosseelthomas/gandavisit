@@ -90,7 +90,8 @@ namespace GandaVisit
                     ISpot spot = new Spot();
                     spot.Id = jobject.GetArray().GetObjectAt(i).GetNamedString("id");
                     spot.Naam = jobject.GetObjectAt(i).GetNamedString("title");
-                    geparset.Add(spot);
+                    
+                        geparset.Add(spot);
                 }
 
             }
@@ -124,6 +125,13 @@ namespace GandaVisit
                 spot.Contact.Email = jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedString("email");
                 spot.Contact.Fax = jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedString("fax");
                 spot.Contact.Website = jobject.GetArray().GetObjectAt(0).GetNamedObject("contact").GetNamedString("website");
+
+                JsonArray images = jobject.GetArray().GetObjectAt(0).GetNamedArray("images");
+                for (uint j = 0; j < images.Count; j++)
+                {
+                    spot.Images.Add(images.GetStringAt(j));
+
+                }
 
             }
             catch (Exception ex)

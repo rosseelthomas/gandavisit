@@ -76,7 +76,15 @@ namespace GandaVisit
             DetailsPivot.Title = s.Naam;
             if (s.ImgLink != null)
             {
-            ImgDetail.Source = new BitmapImage(new Uri(s.ImgLink));
+                try
+                {
+                    ImgDetail.Source = new BitmapImage(new Uri(s.ImgLink));
+                }
+                catch (Exception ex)
+                {
+                   
+                }
+            
             }
             txtSummuray.Text = s.Summary;
 
@@ -92,6 +100,10 @@ namespace GandaVisit
             });
 
             Set_Map(p, current_spot.Naam);
+
+            show_imgs();
+            
+            
         }
 
         private void Set_Contact()
@@ -334,6 +346,39 @@ namespace GandaVisit
             DetailsPivot.SelectedIndex = 3;
             CalculateRoute();
         }
+
+        private void OpenImage(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            
+        }
+
+
+        private void CommandBar_Opened(object sender, object e)
+        {
+
+        }
+
+        private void show_imgs()
+        {
+            List<DataItem> items = new List<DataItem>();
+            foreach (String img in current_spot.Images)
+            {
+                DataItem item = new DataItem();
+                item.ImgSource = img;
+                item.IsLoading = true;
+                items.Add(item);
+            }
+            gridImg.ItemsSource = items;
+        }
+
+        private void Image_ImageOpened(object sender, RoutedEventArgs e)
+        {
+            DataItem item = (((Image)sender).DataContext as DataItem);
+            item.IsLoading = false;
+        }
+
+
+       
 
 
 

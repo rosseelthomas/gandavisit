@@ -118,22 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>Over</value>
+    <value>About</value>
+  </data>
+  <data name="Annuleer" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="BtnAddVisit.Content" xml:space="preserve">
-    <value>Toevoegen</value>
+    <value>Add</value>
   </data>
   <data name="BtnClear.Label" xml:space="preserve">
-    <value>Reset kaart</value>
+    <value>Reset map</value>
   </data>
   <data name="btnRoute.Label" xml:space="preserve">
     <value>Route</value>
   </data>
   <data name="btnSearch.Content" xml:space="preserve">
-    <value>Zoek</value>
+    <value>Search</value>
+  </data>
+  <data name="ErrorInternet" xml:space="preserve">
+    <value>An error occured: are you connected to the internet?</value>
+  </data>
+  <data name="ErrorLocatieInternet" xml:space="preserve">
+    <value>An error occured:are you connected to the internet or is the location service on?</value>
+  </data>
+  <data name="Opnieuw" xml:space="preserve">
+    <value>Try again</value>
+  </data>
+  <data name="pAfbeeldingen.Header" xml:space="preserve">
+    <value>Images</value>
   </data>
   <data name="pBeschrijving.Header" xml:space="preserve">
-    <value>Beschrijving</value>
+    <value>Description</value>
   </data>
   <data name="pContact.Header" xml:space="preserve">
     <value>Contact</value>
@@ -142,25 +157,31 @@
     <value>Info</value>
   </data>
   <data name="pKaart.Header" xml:space="preserve">
-    <value>Kaart</value>
+    <value>Map</value>
   </data>
   <data name="pMenu.Header" xml:space="preserve">
     <value>Menu</value>
   </data>
   <data name="pMyVisits.Header" xml:space="preserve">
-    <value>Mijn bezoeken</value>
+    <value>My visists</value>
   </data>
   <data name="pOver.Header" xml:space="preserve">
-    <value>Over</value>
+    <value>About</value>
   </data>
   <data name="pZoek.Header" xml:space="preserve">
-    <value>Zoek</value>
+    <value>Search</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Toevoegen" xml:space="preserve">
+    <value>Add</value>
   </data>
   <data name="TxtAbout.Text" xml:space="preserve">
-    <value>Over</value>
+    <value>About</value>
   </data>
   <data name="txtAddress.Text" xml:space="preserve">
-    <value>Adres</value>
+    <value>Adress</value>
   </data>
   <data name="txtConactWebsite.Text" xml:space="preserve">
     <value>Website</value>
@@ -175,45 +196,27 @@
     <value>Fax</value>
   </data>
   <data name="txtContactPhone.Text" xml:space="preserve">
-    <value>Telefoon</value>
+    <value>Phone</value>
   </data>
   <data name="txtCredits.Text" xml:space="preserve">
     <value>Credits</value>
   </data>
   <data name="TxtMyVisits.Text" xml:space="preserve">
-    <value>Mijn bezoeken</value>
+    <value>My visits</value>
   </data>
   <data name="txtNotFound.Text" xml:space="preserve">
-    <value>Geen resultaten gevonden</value>
+    <value>No results found</value>
   </data>
   <data name="TxtSearch.Text" xml:space="preserve">
-    <value>Zoek</value>
+    <value>Search</value>
   </data>
   <data name="txtVersionNr.Text" xml:space="preserve">
-    <value>App versie</value>
-  </data>
-  <data name="Annuleer" xml:space="preserve">
-    <value>Annuleer</value>
-  </data>
-  <data name="ErrorInternet" xml:space="preserve">
-    <value>Er is een fout opgetreden: ben je verbonden met het internet? </value>
-  </data>
-  <data name="ErrorLocatieInternet" xml:space="preserve">
-    <value>Er is een fout opgetreden: ligt het internet of de locatie service aan?</value>
-  </data>
-  <data name="Opnieuw" xml:space="preserve">
-    <value>Opnieuw</value>
-  </data>
-  <data name="Toevoegen" xml:space="preserve">
-    <value>Toevoegen</value>
+    <value>App version</value>
   </data>
   <data name="Verwijderen" xml:space="preserve">
-    <value>Verwijderen</value>
-  </data>
-  <data name="pAfbeeldingen.Header" xml:space="preserve">
-    <value>Afbeeldingen</value>
+    <value>Remove</value>
   </data>
   <data name="btnMoreImages" xml:space="preserve">
-    <value>Meer</value>
+    <value>More</value>
   </data>
 </root>

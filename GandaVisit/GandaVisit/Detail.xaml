@@ -9,17 +9,13 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.BottomAppBar>
-        <CommandBar ClosedDisplayMode="Minimal">
+        <CommandBar ClosedDisplayMode="Minimal" Opened="CommandBar_Opened">
             <AppBarButton x:Name="btnRoute" x:Uid="btnRoute" Label="Route" Click="btnRoute_Click">
                 <AppBarButton.Icon>
                     <SymbolIcon Symbol="Map"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:Name="BtnClear" x:Uid="BtnClear" Label="Reset kaart" Click="BtnClear_Click">
-                <AppBarButton.Icon>
-                    <SymbolIcon Symbol="Clear"/>
-                </AppBarButton.Icon>
-            </AppBarButton>
+            <AppBarButton x:Name="BtnClear" x:Uid="BtnClear" Label="Reset kaart" Click="BtnClear_Click" Icon="Clear"/>
         </CommandBar>
     </Page.BottomAppBar>
 
@@ -37,6 +33,20 @@
                     <TextBlock x:Name="TxtDiscription" Margin="0" TextWrapping="Wrap" Text="TextBlock" FontSize="24" IsTextSelectionEnabled="True" IsHitTestVisible="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
                 </ScrollViewer>
 
+            </PivotItem>
+            <PivotItem x:Name="pAfbeeldingen" x:Uid="pAfbeeldingen" Header="Afbeeldingen">
+                <GridView x:Name="gridImg" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=pAfbeeldingen, Mode=OneWay}" Height="{Binding ActualHeight, ElementName=pAfbeeldingen, Mode=OneWay}">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Canvas  Height="150" Width="150" Margin="10 10 10 10">
+                                <Image Source="{Binding ImgSource}" Stretch="Uniform" Height="150" Width="150" ImageOpened="Image_ImageOpened"/>
+                                <ProgressRing IsActive="{Binding IsLoading}"  Height="150" Width="150" Canvas.ZIndex="10" Visibility="{Binding IsLoading}"/>
+                                
+                            </Canvas>
+                            
+                        </DataTemplate>
+                    </GridView.ItemTemplate>                    
+                </GridView>
             </PivotItem>
             <PivotItem x:Name="pContact" x:Uid="pContact" Header="Contact">
                 <ScrollViewer VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Margin="0">

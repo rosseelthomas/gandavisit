@@ -25,7 +25,7 @@
                     <TextBlock x:ConnectionId='7' x:Name="TxtAbout" x:Uid="TxtAbout" HorizontalAlignment="Left" Margin="10,111,0,0" TextWrapping="Wrap" Text="Over" VerticalAlignment="Top" RenderTransformOrigin="-1.53,-0.633" Height="47" Width="342" FontSize="36"                  />
                 </Grid>
             </PivotItem>
-            <PivotItem x:Name="pMyVisits" x:Uid="pMyVisists" Header="Mijn bezoeken">
+            <PivotItem x:Name="pMyVisits" x:Uid="pMyVisits" Header="Mijn bezoeken">
                 <StackPanel Margin="0,0,0,10">
                     <ProgressRing x:Name="prVisits" Margin="0"/>
 
@@ -37,10 +37,10 @@
             <PivotItem x:Name="pZoek" x:Uid="pZoek" Header="Zoek" Margin="10,0,0,0">
                 <StackPanel Margin="10,0,0,0">
                     <StackPanel Height="60" Orientation="Horizontal" >
-                        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"  AcceptsReturn="True" IsSpellCheckEnabled="True"/>
+                        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsSpellCheckEnabled="True"/>
                         <Button x:ConnectionId='3' x:Name="btnSearch" x:Uid="btnSearch" Content="Zoek" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"                         Width="50"/>
                         <ProgressRing x:Name="prDetails" Height="50" Margin="10,0,0,0" VerticalAlignment="Top" Width="50" IsActive="False" Visibility="Collapsed" />
-                        <ListView Width="100"/>
+    
                     </StackPanel>
                     <ProgressRing x:Name="prSearch" Margin="0" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
                     <Grid>

@@ -17,7 +17,7 @@ namespace GandaVisit
         private bool isVisits;
         private double longitude;
         private double latitude;
-
+        private List<string> images;
         public Spot()
         {
             contact = new ContactInfo();
@@ -127,7 +127,26 @@ namespace GandaVisit
             }
             set
             {
-                summary = value ;
+                summary = value;
+            }
+        }
+
+
+
+
+        List<string> ISpot.Images
+        {
+            get
+            {
+                if (images == null)
+                {
+                    images = new List<string>();
+                }
+                return images;
+            }
+            set
+            {
+                images = value;
             }
         }
     }

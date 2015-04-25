@@ -14,6 +14,7 @@ namespace GandaVisit
         string ImgLink { get; set; }
         string Description { get; set; }
         string Summary { get; set; }
+        List<string> Images { get; set; }
         ContactInfo Contact { get; set; }
         //Om te weten of het in de visitslijst zit of niet
         bool IsVisists { get; set; }
